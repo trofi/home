@@ -1,0 +1,5 @@
+  !
+  ! - map capslock to meta key
+  !
+  remove Lock = Caps_Lock
+  add Mod3 = Caps_Lock

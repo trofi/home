@@ -1,0 +1,12 @@
+#!/bin/sh
+
+xset m 3 3
+#xset m 4
+xset r rate 200 40
+
+# left and down arrows
+xset r 113 r 116
+
+xsetroot -cursor_name left_ptr
+
+xmodmap ~/.Xmodmap

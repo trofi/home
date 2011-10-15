@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#$RC_DIR/notes
+
+$RC_DIR/wallpaper
+$RC_DIR/mousekbd
+$RC_DIR/xrdb
+
+$RC_DIR/xmonad

@@ -1,0 +1,43 @@
+(setq load-path (cons "~/elisp/python-mode-1.0" load-path))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Python mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Associate .py files with python mode
+ (setq auto-mode-alist
+       (cons `(".py$" . python-mode) auto-mode-alist))
+
+
+
+;; Use the `python' interpreter when executing code in python-mode.
+;; You might want to change this if you have a number of pythons on your
+;; path but want to use a specific version (e.g. python2.3)
+(setq interpreter-mode-alist
+   (cons `("python" . python-mode)
+         interpreter-mode-alist))
+
+
+
+;; These are various settings you may want to set
+;; - py-indent-offset - the number of spaces you are going to indent by
+;; - py-smart-indentation - this allows emacs to guess what your indentation
+;; should be. I set it to nil because I don't want it to do that. I religiously
+;; believe everything should be 4 spaces ;)
+;; - indent-tabs-mode - set to nil - tabs are evil. We indent with spaces
+;;
+(setq python-mode-hook
+   `(lambda () (progn
+                 (set-variable `py-indent-offset 4)
+                 (set-variable `py-smart-indentation nil)
+                 (set-variable `indent-tabs-mode nil) )))
+
+
+
+;; If you start a shell up within python-mode using `py-shell' this is the
+;; interpreter you are going to be using
+(defconst py-python-command "python")
+
+
+
+;; Load the code in
+(autoload `python-mode "python-mode" "Python editing mode." t)

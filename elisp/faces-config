@@ -1,0 +1,21 @@
+(custom-set-faces
+ ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
+ ;; Your	 init file should contain only one such instance.
+ '(default ((t (:stipple nil
+                :background "black"
+		:foreground "gray90"
+		:inverse-video nil
+		:box nil
+		:strike-through nil
+		:overline nil
+		:underline nil
+		:slant normal
+		:weight normal
+		:height 140
+		:width normal
+		:family "xos4-terminus"))))
+ '(cursor ((t (:background "white"))))
+ '(show-paren-match-face ((((class color))
+			   (:foreground "green" :background "darkgray" :family "terminus"))))
+ '(show-paren-mismatch-face ((((class color)) (:foreground "red"   :background "darkgray" :family "terminus"))))
+ '(variable-pitch ((t (:family "terminus")))))

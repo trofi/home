@@ -1,0 +1,68 @@
+;;; -*- lisp -*-
+;;; man
+(global-set-key [(f1)] (lambda () (interactive) (manual-entry (current-word))))
+(global-set-key [(f4)] 'kill-this-buffer)
+
+;;; fast window hops
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;; search progect dir
+(defvar *project-root-dir-indicator* "root-project-dir")
+
+;;; not too portable
+(defun find-root-project-dir ()
+  "Return path to root project directory"
+  (loop for curdir = default-directory then (concat curdir "../")
+        and
+        max = 10 then (- max 1)
+    while (> max 0)
+    when (file-exists-p (concat curdir *project-root-dir-indicator*))
+    return curdir))
+
+;;; compilation
+(defun my-save-and-compile (&rest params)
+  "Saves all dirty buffers and tries to compile all the proj"
+  (interactive "")
+  (save-buffer 0)
+  (compile
+   (let ((dir (find-root-project-dir)))
+     (concat "make"
+         (when dir (concat " -C "
+                   dir
+                   " "
+                   (with-temp-buffer
+                 (insert-file-contents (concat dir "/" *project-root-dir-indicator*))
+                 (buffer-string))))
+         (when params (concat " " (car params)))))))
+(global-set-key [(f9)] 'my-save-and-compile)
+
+(defun my-save-and-run ()
+  (interactive "")
+  (my-save-and-compile "run"))
+(global-set-key [(f5)] 'my-save-and-run)
+
+(defun my-save-and-mk-TAGS ()
+  (interactive "")
+  (my-save-and-compile "TAGS"))
+(global-set-key [(f6)] 'my-save-and-mk-TAGS)
+
+(defun my-save-and-clean ()
+  (interactive "")
+  (my-save-and-compile "clean"))
+(global-set-key [(f7)] 'my-save-and-clean)
+
+;;; tags
+(defun my-visit-tags-table-in-current-dir ()
+  (interactive "")
+  (visit-tags-table (concat (find-root-project-dir) "/TAGS")))
+(global-set-key [(f8)] 'my-visit-tags-table-in-current-dir)
+
+;;; flawfinder
+(defun my-exec-flaw-finder-in-current-dir ()
+  (interactive "")
+  (compile (concat "flawfinder " (find-root-project-dir) "/")))
+(global-set-key [(f12)] 'my-exec-flaw-finder-in-current-dir)

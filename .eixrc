@@ -1,0 +1,7 @@
+# eix --dump | grep -i blue | sed -e 's/blue/cyan/g'
+COLOR_INST_VERSION="cyan,1;%{MARK_INSTALLED}"
+COLOR_INST_TITLE="cyan"
+FORMAT_BEFORE_IUSE=" [(cyan)"
+FORMAT_BEFORE_COLL_IUSE=" \\{(cyan)"
+FORMAT_BEFORE_SLOT_IUSE="\\n\\t\\{(cyan)"
+COLOR_BINARY="cyan,1"

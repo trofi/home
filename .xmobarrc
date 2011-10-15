@@ -1,0 +1,18 @@
+Config { font = "-xos4-terminus-medium-*-*-*-*-160-*-*-*-*-iso10646-1"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [
+                      Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "ppp0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Date "%A | %Y-%m-%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% ||| %memory% ||| %eth0% | %ppp0% | <fc=#ee9a00>%date%</fc>"
+       }

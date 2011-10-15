@@ -1,0 +1,4 @@
+#!/bin/sh
+
+FILE="image-$(date "+%F-%H-%M-%S").iso"
+genisoimage -multi -r -J -o "$FILE" $@

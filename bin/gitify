@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+git init
+git add .
+git commit -a -s -m "initial $(pwd)"

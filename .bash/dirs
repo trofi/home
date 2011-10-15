@@ -1,0 +1,34 @@
+# Begin ~/.bash/dirs
+# Personal aliases and functions.
+
+path_append () {
+  # First remove the directory
+  local IFS=':'
+  local NEWPATH
+  for DIR in $PATH; do
+  if [ "$DIR" != "$1" ]; then
+    NEWPATH=${NEWPATH:+$NEWPATH:}$DIR
+  fi
+  done
+  # Then append the directory
+  export PATH=$NEWPATH:$1
+}
+
+path_prepend () {
+  # First remove the directory
+  local IFS=':'
+  local NEWPATH
+  for DIR in $PATH; do
+  if [ "$DIR" != "$1" ]; then
+    NEWPATH=${NEWPATH:+$NEWPATH:}${DIR}
+  fi
+  done
+  # Then append the directory
+  export PATH=$1:$NEWPATH
+}
+
+
+export CVSROOT=/srv/cvsroot
+
+
+#End ~/.bash/dirs

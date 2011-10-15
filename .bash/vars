@@ -1,0 +1,53 @@
+# Begin ~/.bash/vars
+# Personal aliases and functions.
+
+if [ "$TERM" = "rxvt-unicode" ] ; then
+        export TERM=rxvt
+fi
+
+if [ "$TERM" = "xterm" ] ; then
+        export TERM=xterm-color
+        export COLORTERM=xterm
+fi
+
+if [ "$TERM" = "xterm-color" ] ; then
+        export COLORTERM=xterm
+fi
+
+export LANG=ru_RU.UTF-8
+export LANGUAGE=ru_BY:ru_RU:ru:en_GB:en
+export LC_ALL=""
+
+G_FILENAME_ENCODING="@locale"
+G_BROKEN_FILENAMES=1
+export G_FILENAME_ENCODING G_BROKEN_FILENAMES
+
+PERLDOC_PAGER="less -isR"
+
+PAGER="most"
+export PAGER
+#PAGER="less"
+#LESS="-isR"
+#export LESS
+
+MAILDIR=$HOME/.maildir
+export MAILDIR
+
+export PS1='[sf]\w\$ '
+
+#PS1="\[\033[1;32m[sf]\] \[\033[1;33m\]\w\[\033[1;31m\]:\[\033[0;39m\]\[\033[00m\]"
+#PS2="\[\033[1;32m\]....\[\033[1;31\]m> \[\033[0;39m\]\[\033[00m\]"
+PS1="\[\033[01;32m\][sf] \[\033[01;33m\]\w\[\033[01;31m\]:\[\033[00m\]"
+PS2="\[\033[01;32m\]....\[\033[01;31m\]> \[\033[00m\]"
+
+export GROFF_NO_SGR=1
+
+export TSOCKS_CONFFILE=$HOME/.tscoks/conf
+
+unset XMMS_PATH
+
+export SDL_AUDIODRIVER=pulse
+
+export ECHANGELOG_USER="Sergei Trofimovich <slyfox@gentoo.org>"
+
+#End ~/.bash/vars

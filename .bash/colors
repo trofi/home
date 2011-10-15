@@ -1,0 +1,8 @@
+red='\e[01;31m'
+green='\e[01;32m'
+yellow='\e[01;33m'
+blue='\e[01;34m'
+magenta='\e[01;35m'
+cyan='\e[01;36m'
+white='\e[01;37m'
+normal='\e[0;39m'

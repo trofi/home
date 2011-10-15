@@ -1,0 +1,32 @@
+# Begin ~/.bash/rc
+# Personal aliases and functions.
+
+if [ -f "$HOME/.bash/dirs" ] ; then
+        source $HOME/.bash/dirs
+fi
+
+if [ -f "$HOME/.bash/alias" ] ; then
+        source $HOME/.bash/alias
+fi
+
+if [ -f "$HOME/.bash/colors" ] ; then
+        source $HOME/.bash/colors
+fi
+
+if [ -f "$HOME/.bash/vars" ] ; then
+        source $HOME/.bash/vars
+fi
+
+if [ -f "$HOME/.bash/funs" ] ; then
+        source $HOME/.bash/funs
+fi
+
+
+#if [ -f "/etc/bashrc" ] ; then
+#        source /etc/bashrc
+#fi
+
+[[ -f /etc/profile.d/bash-completion.sh ]] &&
+    source /etc/profile.d/bash-completion.sh
+
+#End ~/.bash/rc

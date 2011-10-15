@@ -1,0 +1,30 @@
+# Begin ~/.bash/funs
+# Personal functions
+
+x(){
+   xinit -- \
+   "$@" \
+   -nolisten tcp
+}
+
+wm (){
+  # undone
+  _WM="$1"
+  shift
+  WM="$_WM" x "$@"
+}
+
+m () {
+  nyxmms2 clear
+  local was_playlist=no
+  for pl in *.cue *.Cue
+  do
+      if [ -f "$pl" ]; then
+          was_playlist=yes
+          nyxmms2 addpls "$pl"
+      fi
+  done
+  if [ "$was_playlist" = "no" ]; then
+      nyxmms2 add .
+  fi
+}

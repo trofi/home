@@ -28,7 +28,4 @@ path_prepend () {
 }
 
 
-export CVSROOT=/srv/cvsroot
-
-
 #End ~/.bash/dirs

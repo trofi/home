@@ -1,15 +1,19 @@
 #!/bin/sh
 
+supp="$HOME/misc/valgrind/all.supp"
+
 G_SLICE=always-malloc \
 G_DEBUG=gc-friendly   \
 \
 GLIBCXX_FORCE_NEW=1 \
 valgrind \
-    --track-origins=yes  \
-    --num-callers=50     \
-    --track-fds=yes      \
-    --leak-check=full    \
-    --show-reachable=yes \
-    --malloc-fill=0xa1   \
-    --free-fill=0xa1     \
-  "$@"
+    --track-origins=yes          \
+    --trace-children=yes         \
+    --num-callers=50             \
+    --track-fds=yes              \
+    --leak-check=full            \
+    --show-reachable=yes         \
+    --malloc-fill=0xa1           \
+    --free-fill=0xa1             \
+    --suppressions=$supp         \
+"$@"

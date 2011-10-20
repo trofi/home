@@ -2,7 +2,7 @@
 (load "/usr/share/emacs/site-lisp/site-gentoo")
 
 (setq load-path (cons "~/elisp" load-path))
-;;;;(load-file "~/elisp/codepages-config")
+(load-file "~/elisp/codepages-config")
 (load-file "~/elisp/variables-config")
 (load-file "~/elisp/keybind-config")
 ;;;;(load-file "~/elisp/python-mode-config")
@@ -11,4 +11,8 @@
 (load-file "~/elisp/lisp-mode-config")
 (load-file "~/elisp/scroll_s.el")
 (load-file "~/elisp/gnus-config.el")
+
+;;; whitespace cfg
+(load-file "~/elisp/whitespace.el")
+
 (server-start)

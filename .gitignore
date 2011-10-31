@@ -1,5 +1,9 @@
 # per-machive overrides
 .bash/*.local
+.bash_history
+.bash_profile
+.bashrc
+
 .xmonad/xmonad-x86_64-linux
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi

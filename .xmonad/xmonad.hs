@@ -44,20 +44,20 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. controlMask, xK_n     ), spawn "zim Notes")
 
     -- xmms2d
-    , ((mod4Mask               , xK_Home     ), spawn "nyxmms2 prev")
-    , ((mod4Mask               , xK_End      ), spawn "nyxmms2 next")
-    , ((mod4Mask               , xK_Insert   ), spawn "nyxmms2 play")
-    , ((mod4Mask               , xK_Delete   ), spawn "nyxmms2 pause")
-    , ((mod4Mask               , xK_Prior    ), spawn "nyxmms2 seek +30")
-    , ((mod4Mask               , xK_Next     ), spawn "nyxmms2 seek -30")
-    , ((mod4Mask               , xK_Up       ), spawn "nyxmms2 seek +20")
-    , ((mod4Mask               , xK_Down     ), spawn "nyxmms2 seek -30")
-    , ((mod4Mask               , xK_Right    ), spawn "nyxmms2 seek +10")
-    , ((mod4Mask               , xK_Left     ), spawn "nyxmms2 seek -10")
+    , ((mod4Mask               , xK_Home     ), spawn "xmms2 prev")
+    , ((mod4Mask               , xK_End      ), spawn "xmms2 next")
+    , ((mod4Mask               , xK_Insert   ), spawn "xmms2 play")
+    , ((mod4Mask               , xK_Delete   ), spawn "xmms2 pause")
+    , ((mod4Mask               , xK_Prior    ), spawn "xmms2 seek +30")
+    , ((mod4Mask               , xK_Next     ), spawn "xmms2 seek -30")
+    , ((mod4Mask               , xK_Up       ), spawn "xmms2 seek +20")
+    , ((mod4Mask               , xK_Down     ), spawn "xmms2 seek -30")
+    , ((mod4Mask               , xK_Right    ), spawn "xmms2 seek +10")
+    , ((mod4Mask               , xK_Left     ), spawn "xmms2 seek -10")
     -- xmms2d fun stuff
-    , ((mod4Mask               , xK_equal       ), spawn "nyxmms2 server config vocoder.speed 100")
-    , ((mod4Mask               , xK_KP_Add      ), spawn "nyxmms2 server config vocoder.speed $((`nyxmms2 server config vocoder.speed | cut -d' ' -f3` + 10))")
-    , ((mod4Mask               , xK_KP_Subtract ), spawn "nyxmms2 server config vocoder.speed $((`nyxmms2 server config vocoder.speed | cut -d' ' -f3` - 10))")
+    , ((mod4Mask               , xK_equal       ), spawn "xmms2 server config vocoder.speed 100")
+    , ((mod4Mask               , xK_KP_Add      ), spawn "xmms2 server config vocoder.speed $((`xmms2 server config vocoder.speed | cut -d' ' -f3` + 10))")
+    , ((mod4Mask               , xK_KP_Subtract ), spawn "xmms2 server config vocoder.speed $((`xmms2 server config vocoder.speed | cut -d' ' -f3` - 10))")
 
     -- misc
     , ((mod4Mask                 , xK_F8     ), spawn "~/.rc.d/x11/xmonad/mousekbd")

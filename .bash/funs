@@ -15,16 +15,16 @@ wm (){
 }
 
 m () {
-  nyxmms2 clear
+  xmms2 clear
   local was_playlist=no
   for pl in *.cue *.Cue
   do
       if [ -f "$pl" ]; then
           was_playlist=yes
-          nyxmms2 addpls "$pl"
+          xmms2 addpls "$pl"
       fi
   done
   if [ "$was_playlist" = "no" ]; then
-      nyxmms2 add .
+      xmms2 add .
   fi
 }

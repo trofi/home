@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -z $WM_COMMAND ]]; then
+    echo "ERROR: WM=none needs WM_COMMAND variable set to do something"
+    exit 1
+fi
+
+$WM_COMMAND

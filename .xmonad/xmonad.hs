@@ -42,6 +42,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. controlMask, xK_t     ), spawn "tkabber")
     , ((modMask .|. controlMask, xK_m     ), spawn "claws-mail")
     , ((modMask .|. controlMask, xK_n     ), spawn "zim Notes")
+    , ((modMask .|. controlMask, xK_s     ), spawn "skypetab-ng")
 
     -- xmms2d
     , ((mod4Mask               , xK_Home     ), spawn "xmms2 prev")
@@ -190,7 +191,6 @@ myFocusFollowsMouse = True
 myStartupHook = return ()
 
 ------------------------------------------------------------------------
-dzenCmd= "dzen2 -bg '#324c80' -fg '#adbadd' -e '' -ta l -w 1280 -fn '-xos4-terminus-medium-r-normal-*-*-160-*-*-*-*-iso10646-1'"
 xmobarCmdT = "                                            xmobar -o -B '#122c80' -F '#adbadd' -f 'xft:Terminus-12' -t '%StdinReader%'"
 xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %cpu% | %memory% ||| %wlan0% ||| <fc=cyan>%date%</fc>'"
 -- xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %cpu% | %memory% ||| %wlan0% ||| <fc=cyan>%date%</fc>'"

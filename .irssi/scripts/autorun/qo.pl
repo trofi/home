@@ -16,7 +16,7 @@ $VERSION = "0.0.1";
 sub toc_toc
 {
     my $sound="query_open.wav";
-    `aplay ~/.irssi/sounds/$sound >& /dev/null &`;
+    `aplay ~/.irssi/sounds/$sound >/dev/null 2>&1 &`;
 }
 
 Irssi::signal_add_last('query created', 'toc_toc');

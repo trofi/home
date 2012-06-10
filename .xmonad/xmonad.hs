@@ -192,7 +192,7 @@ myStartupHook = return ()
 
 ------------------------------------------------------------------------
 xmobarCmdT = "                                            xmobar -o -B '#122c80' -F '#adbadd' -f 'xft:Terminus-12' -t '%StdinReader%'"
-xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %cpu% | %memory% ||| %wlan0% ||| <fc=cyan>%date%</fc>'"
+xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %battery% | %cpu% | %memory% ||| %wlan0% ||| <fc=cyan>%date%</fc>'"
 -- xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %cpu% | %memory% ||| %wlan0% ||| <fc=cyan>%date%</fc>'"
 main = do dinT <- spawnPipe xmobarCmdT
           dinB <- spawnPipe xmobarCmdB

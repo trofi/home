@@ -1,0 +1,7 @@
+#!/bin/sh
+
+FEATURES="strict stricter test" \
+GITIFY=yes \
+PORTAGE_TMPDIR=/tmp \
+    \
+    exec ebuild "$@"

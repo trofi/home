@@ -1,11 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
 
 if   sys.argv[1] in ['irc', 'xmobar', 'none', 'tty']:
     pass
 else:
-    print "ERROR: please choose available flavour"
+    print("ERROR: please choose available flavour")
     exit(1)
 
 flavour = sys.argv[1]
@@ -40,21 +40,14 @@ def paint(color, text):
     elif flavour == 'none':
         return text
     else:
-        print "ERROR: bad flavour: %s" % flavour
+        print("ERROR: bad flavour: %s" % flavour)
         exit(1)
 
 import locale
 
-locale.setlocale(locale.LC_ALL, '')
-locale_enc = locale.nl_langinfo(locale.CODESET)
-
 def show(s):
-    print(s.encode(locale_enc
-                  , errors='backslashreplace'
-                  #, errors='replace'
-                  #, errors='xmlcharrefreplace'
-                  )
-         )
+    print(s)
+
 
 import xmmsclient
 
@@ -76,10 +69,10 @@ mdata.sources = [ 'client/xmobar-tray'
 
 def pp_duration(milliseconds):
     result = ""
-    seconds = milliseconds / 1000
-    minutes = seconds / 60
-    hours   = minutes / 60
-    days    = hours / 24
+    seconds = milliseconds // 1000
+    minutes = seconds // 60
+    hours   = minutes // 60
+    days    = hours // 24
     started_output = False
     if days     > 0 or started_output: result += ("%dd " % days); started_output = True
     if hours    > 0 or started_output: result += ("%dh " % (hours % 24)); started_output = True
@@ -87,7 +80,7 @@ def pp_duration(milliseconds):
     if seconds  > 0 or started_output: result += ("%ds"  % (seconds % 60)); started_output = True
     return result
 
-show(' '.join(map( lambda(c,t): paint(c,t)
+show(' '.join(map( (lambda c: paint(*c))
                  ,       [ ('cyan',   "<%s>"    % mdata.get('artist', '?'))
                          #, ('green',  "%s"       % '-')
                          , ('yellow', "[%s]"     % mdata.get('album', '?'))

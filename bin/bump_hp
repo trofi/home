@@ -49,3 +49,4 @@ run repoman manifest
 run git add .
 run git commit -s -m "${c}/${pn}: bump up to ${pv}" .
 run git show -C -M
+run repoman full

@@ -37,7 +37,7 @@ pv=$1; shift
 [[ ${pv} == --auto ]] && pv=$(get_latest "${pn}")
 
 run hackport merge "$pn"
-run ebuild "${pn}-${pv}.ebuild" clean install
+run e "${pn}-${pv}.ebuild" clean install
 
 for rmpv in "$@"; do
     run rm "${rmpv}"

@@ -37,10 +37,11 @@ pv=$1; shift
 [[ ${pv} == --auto ]] && pv=$(get_latest "${pn}")
 
 run hackport merge "$pn"
-run e "${pn}-${pv}.ebuild" clean install
+current_e=${pn}-${pv}.ebuild
+run e "${current_e}" clean install
 
 for rmpv in "$@"; do
-    run rm "${rmpv}"
+    [[ ${rmpv} = ${current_e} ]] || run rm "${rmpv}"
 done
 
 c=$(basename "$(dirname "$(pwd)")")
@@ -50,4 +51,4 @@ run git add .
 run git commit -s -m "${c}/${pn}: bump up to ${pv}" .
 run git show -C -M
 run repoman full
-run e "${pn}-${pv}.ebuild" clean
+run e "${current_e}" clean

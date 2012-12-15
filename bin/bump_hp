@@ -1,0 +1,51 @@
+#!/bin/bash
+
+die() {
+    echo "ERROR: $@"
+    exit 1
+}
+
+run() {
+    echo "$@"
+    "$@" || die "$?"
+}
+
+usage() {
+    echo "usage: $0 <pv | --auto> [rm-files...]"
+    echo "example: go to dev-haskell/tls and run:"
+    echo "    $0 --auto *.ebuild"
+    die "no args"
+}
+
+get_latest() {
+    local pn=$1
+    local r=
+    while read p; do
+        # pkg ver
+        set -- ${p}
+        [[ ${1,,} == ${pn} ]] && r=${2}
+    done < <(cabal list "${pn}" --simple-output)
+    [[ -n ${r} ]] || die "failed to find latest version for '${pn}'"
+    echo "${r}"
+}
+
+pn=$(basename $(pwd))
+c=$(basename $(dirname $(pwd)))
+
+pv=$1; shift
+[[ -z ${pv} ]] && usage
+[[ ${pv} == --auto ]] && pv=$(get_latest "${pn}")
+
+run hackport merge "$pn"
+run ebuild "${pn}-${pv}.ebuild" clean install
+
+for rmpv in "$@"; do
+    run rm "${rmpv}"
+done
+
+c=$(basename "$(dirname "$(pwd)")")
+
+run repoman manifest
+run git add .
+run git commit -s -m "${c}/${pn}: bump up to ${pv}" .
+run git show -C -M

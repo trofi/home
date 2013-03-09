@@ -1,8 +1,8 @@
 #!/bin/sh -e
 
-sudo cave resolve \
-    --execute \
-    --complete \
-    --continue-on-failure if-satisfied \
-    world \
+sudo emerge -vuDN @world \
+    --keep-going \
+    --jobs="$(($(nproc) + 1))" \
+    --with-bdeps=y \
+    --complete-graph \
     "$@"

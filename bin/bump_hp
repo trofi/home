@@ -38,6 +38,9 @@ pv=$1; shift
 
 run hackport merge "$pn"
 current_e=${pn}-${pv}.ebuild
+
+USE="-profile ${USE}" \
+HCFLAGS="-O0 ${HCFLAGS}" \
 run e "${current_e}" clean install
 
 for rmpv in "$@"; do
@@ -49,6 +52,6 @@ c=$(basename "$(dirname "$(pwd)")")
 run repoman manifest
 run git add .
 run git commit -s -m "${c}/${pn}: bump up to ${pv}" .
-run git show -C -M
+run git show -C -M -D
 run repoman full
 run e "${current_e}" clean

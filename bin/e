@@ -1,6 +1,8 @@
 #!/bin/sh
 
 FEATURES="strict stricter test ${FEATURES}" \
+USE="-profile ${USE}" \
+HCFLAGS="-O0 ${HCFLAGS}" \
 GITIFY=yes \
 PORTAGE_TMPDIR=/tmp \
     \

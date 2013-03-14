@@ -37,7 +37,7 @@ XTerm*VT100*color0: black
 XTerm*VT100*color1: red3
 XTerm*VT100*color2: green3
 XTerm*VT100*color3: yellow3
-XTerm*VT100*color4: rgb:00/00/40
+XTerm*VT100*color4: rgb:00/00/60
 XTerm*VT100*color5: magenta3
 XTerm*VT100*color6: cyan3
 XTerm*VT100*color7: gray90

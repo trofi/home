@@ -27,7 +27,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
     [ ((controlMask ,          xK_grave ), spawn $ XMonad.terminal conf)
-    , ((mod4Mask    ,          xK_grave ), spawn "xterm -e alsamixer -c0" )
+    , ((mod4Mask    ,          xK_grave ), spawn "xterm -e alsamixer" )
     -- , ((mod4Mask    ,          xK_grave ), spawn "pavucontrol" )
 
     -- launch dmenu

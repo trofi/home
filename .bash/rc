@@ -11,7 +11,7 @@ done
 #        source /etc/bashrc
 #fi
 
-[[ -f /etc/profile.d/bash-completion.sh ]] &&
-    source /etc/profile.d/bash-completion.sh
+[[ -f /usr/share/bash-completion/bash_completion ]] &&
+. /usr/share/bash-completion/bash_completion
 
 #End ~/.bash/rc

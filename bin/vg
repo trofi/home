@@ -13,7 +13,7 @@ valgrind \
     --track-fds=yes              \
     --leak-check=full            \
     --show-reachable=yes         \
-    --malloc-fill=0xa1           \
-    --free-fill=0xa1             \
+    --malloc-fill=0xE1           \
+    --free-fill=0xF1             \
     --suppressions=$supp         \
 "$@"

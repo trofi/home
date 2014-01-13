@@ -28,3 +28,12 @@ m () {
       xmms2 add .
   fi
 }
+
+# gentooism: ${CATEGORY}/${PN} for current dir
+cpn() {
+    local d=$(pwd)
+    local pn=$(basename "$d")
+    local c=$(basename "$(dirname "$d")")
+
+    echo "${c}/${pn}"
+}

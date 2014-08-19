@@ -22,7 +22,8 @@ XTerm*font:        -xos4-terminus-medium-*-*-*-*-200-*-*-*-*-iso10646-1
 XTerm*saveLines:   10000
 XTerm*geometry:    120x45
 
-XTerm*font1:        -xos4-terminus-medium-*-*-*-*-120-*-*-*-*-iso10646-1
+!XTerm*font1:        -xos4-terminus-medium-*-*-*-*-120-*-*-*-*-iso10646-1
+XTerm*font1:        -xos4-terminus-medium-*-*-*-*-72-*-*-*-*-iso10646-1
 XTerm*font2:        -xos4-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1
 XTerm*font3:        -xos4-terminus-medium-*-*-*-*-160-*-*-*-*-iso10646-1
 XTerm*font4:        -xos4-terminus-medium-*-*-*-*-200-*-*-*-*-iso10646-1

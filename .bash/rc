@@ -1,15 +1,13 @@
+#!/usr/bin/env bash
+
 # Begin ~/.bash/rc
 # Personal aliases and functions.
 
-for cfg in dirs alias colors vars funs
+for cfg in dirs alias colors funs vars.rc
 do
     [[ -f $HOME/.bash/${cfg} ]] && source "$HOME/.bash/${cfg}"
     [[ -f $HOME/.bash/${cfg}.local ]] && source "$HOME/.bash/${cfg}.local"
 done
-
-#if [ -f "/etc/bashrc" ] ; then
-#        source /etc/bashrc
-#fi
 
 # >=app-shells/bash-completion-2.1-r1
 [[ -f /usr/share/bash-completion/bash_completion ]] &&

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Begin ~/.bash/profile
 path_append () {
   # First remove the directory
@@ -36,5 +38,12 @@ fi
 if [ -d "$HOME/.cabal/bin" ] ; then
   path_prepend $HOME/.cabal/bin
 fi
+
+for cfg in vars rc
+do
+    echo "SOURCE: $HOME/.bash/${cfg}"
+    [[ -f $HOME/.bash/${cfg} ]] && source "$HOME/.bash/${cfg}"
+    [[ -f $HOME/.bash/${cfg}.local ]] && source "$HOME/.bash/${cfg}.local"
+done
 
 # End ~/.bash/profile

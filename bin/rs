@@ -1,3 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
-runhaskell Setup "$@"
+set -e
+
+case "$1" in
+    b)
+        shift
+        ${0} configure "$@"
+        ${0} build
+        ;;
+    bt)
+        shift
+        ${0} configure --enable-tests "$@"
+        ${0} build
+        ${0} test
+        ;;
+    s)
+        shift
+        ${0} configure "$@"
+        ${0} sdist
+        ;;
+    *)
+        exec runhaskell Setup "$@"
+        ;;
+esac

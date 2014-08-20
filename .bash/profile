@@ -41,7 +41,6 @@ fi
 
 for cfg in vars rc
 do
-    echo "SOURCE: $HOME/.bash/${cfg}"
     [[ -f $HOME/.bash/${cfg} ]] && source "$HOME/.bash/${cfg}"
     [[ -f $HOME/.bash/${cfg}.local ]] && source "$HOME/.bash/${cfg}.local"
 done

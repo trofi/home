@@ -47,6 +47,7 @@ import locale
 
 def show(s):
     print(s)
+    sys.stdout.flush()
 
 import xmmsclient
 

@@ -15,7 +15,7 @@ $VERSION = "0.0.1";
 
 sub toc_toc
 {
-    my $sound="query_open.wav";
+    my $sound="login.wav";
     `aplay ~/.irssi/sounds/$sound >/dev/null 2>&1 &`;
 }
 

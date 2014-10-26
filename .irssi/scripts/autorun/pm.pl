@@ -15,7 +15,7 @@ $VERSION = "0.0.1";
 
 sub query_up
 {
-    my $sound="privmsg.wav";
+    my $sound="done.wav";
     `aplay ~/.irssi/sounds/$sound >/dev/null 2>&1 &`;
 }
 

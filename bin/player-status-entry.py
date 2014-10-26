@@ -48,7 +48,6 @@ import locale
 def show(s):
     print(s)
 
-
 import xmmsclient
 
 xc = xmmsclient.XMMSSync('xmobar-tray')

@@ -9,6 +9,7 @@
 XTerm*eightBitInput:   true
 XTerm*metaSendsEscape: true
 
+XTerm*selectToClipboard: true
 XTerm*visualBell:  false
 
 XTerm*background:  black

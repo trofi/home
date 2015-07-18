@@ -2,21 +2,37 @@
 
 set -e
 
+# to run dist/build/ thinkgs directly
+export LD_LIBRARY_PATH="$(pwd)/dist/build${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
+
+conf_args="--enable-executable-dynamic --enable-tests --ghc-options=-j4"
+
 case "$1" in
     b)
         shift
-        ${0} configure "$@"
+        ${0} configure ${conf_args} "$@"
         ${0} build
+        ;;
+    bo)
+        shift
+        ${0} build "$@"
         ;;
     bt)
         shift
-        ${0} configure --enable-tests "$@"
+        ${0} configure ${conf_args} "$@"
         ${0} build
+        ${0} test
+        ;;
+    bht)
+        shift
+        ${0} configure ${conf_args} "$@"
+        ${0} build
+        ${0} haddock --hyperlink-source
         ${0} test
         ;;
     s)
         shift
-        ${0} configure "$@"
+        ${0} configure ${conf_args} "$@"
         ${0} sdist
         ;;
     *)

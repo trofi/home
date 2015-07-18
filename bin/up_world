@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-sudo emerge -vuDN @world \
+sudo emerge -vuDN @world @preserved-rebuild \
     --keep-going \
     --jobs="$(($(nproc) + 1))" \
     --with-bdeps=y \

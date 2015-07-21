@@ -1,0 +1,8 @@
+#!/bin/bash
+
+dir=$1; shift # TODO: iterate until '--'
+
+while inotifywait -r -e close_write "$dir"
+do
+    "$@"
+done

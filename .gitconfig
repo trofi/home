@@ -4,3 +4,5 @@
 	email = siarheit@google.com
 	name = Sergei Trofimovich
 	signingkey = 0x71A1EE76611FF3AA
+[push]
+	default = simple

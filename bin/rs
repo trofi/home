@@ -2,7 +2,7 @@
 
 set -e
 
-# to run dist/build/ thinkgs directly
+# to run dist/build/ things directly
 export LD_LIBRARY_PATH="$(pwd)/dist/build${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
 
 conf_args="--enable-executable-dynamic --enable-tests --ghc-options=-j4"
@@ -36,6 +36,6 @@ case "$1" in
         ${0} sdist
         ;;
     *)
-        exec runhaskell Setup "$@"
+        exec runhaskell ${HCFLAGS} Setup "$@"
         ;;
 esac

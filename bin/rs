@@ -5,12 +5,20 @@ set -e
 # to run dist/build/ things directly
 export LD_LIBRARY_PATH="$(pwd)/dist/build${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
 
-conf_args="--enable-executable-dynamic --enable-tests --ghc-options=-j4"
+conf_args=(
+    --enable-executable-dynamic
+    --enable-tests
+    --ghc-options=-j4
+)
+
+for hcflag in ${HCFLAGS}; do
+    conf_args+=(--ghc-options=${hcflag})
+done
 
 case "$1" in
     b)
         shift
-        ${0} configure ${conf_args} "$@"
+        ${0} configure ${conf_args[@]} "$@"
         ${0} build
         ;;
     bo)
@@ -19,20 +27,20 @@ case "$1" in
         ;;
     bt)
         shift
-        ${0} configure ${conf_args} "$@"
+        ${0} configure ${conf_args[@]} "$@"
         ${0} build
         ${0} test
         ;;
     bht)
         shift
-        ${0} configure ${conf_args} "$@"
+        ${0} configure ${conf_args[@]} "$@"
         ${0} build
         ${0} haddock --hyperlink-source
         ${0} test
         ;;
     s)
         shift
-        ${0} configure ${conf_args} "$@"
+        ${0} configure ${conf_args[@]} "$@"
         ${0} sdist
         ;;
     *)

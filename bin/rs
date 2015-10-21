@@ -38,6 +38,11 @@ case "$1" in
         ${0} haddock --hyperlink-source
         ${0} test
         ;;
+    h)
+        shift
+        ${0} configure ${conf_args[@]} "$@"
+        ${0} haddock --hyperlink-source
+        ;;
     s)
         shift
         ${0} configure ${conf_args[@]} "$@"

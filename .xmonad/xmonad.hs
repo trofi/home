@@ -1,28 +1,35 @@
+{-# OPTIONS_GHC -Wall #-}
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run
 import XMonad.Layout.NoBorders
-import XMonad.Hooks.EwmhDesktops (ewmh)
-
-import System.IO
+import qualified XMonad.Hooks.EwmhDesktops as XHE
+import qualified XMonad.Hooks.SetWMName    as XHS
 
 import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-myTerminal      = "xterm"
+myTerminal :: String
+myTerminal = "xterm"
 
-myBorderWidth   = 1
+myBorderWidth :: Dimension
+myBorderWidth = 1
 
-myModMask       = mod1Mask
+myModMask :: KeyMask
+myModMask = mod1Mask
 
-myWorkspaces    = ["[1]pdf","[2]irc","[3]im","[4]","[5]","[6]web","[7]mail","[8]net","[9]music"]
+myWorkspaces :: [String]
+myWorkspaces = ["[1]pdf","[2]irc","[3]im","[4]","[5]","[6]web","[7]mail","[8]net","[9]music"]
 
+myNormalBorderColor :: String
 myNormalBorderColor  = "#dddddd"
+myFocusedBorderColor :: String
 myFocusedBorderColor = "#ff0000"
 
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
@@ -161,13 +168,14 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 -}
 
+myMouseBindings :: XConfig t -> M.Map (KeyMask, Button) (Window -> X ())
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask, button1), (\w -> focus w >> mouseMoveWindow w))
     , ((modMask, button2), (\w -> focus w >> windows W.swapMaster))
     , ((modMask, button3), (\w -> focus w >> mouseResizeWindow w))
     -- Mouse scroll wheel to raise/lower windows
-    , ((modMask, button5), (\w -> windows W.swapDown))
-    , ((modMask, button4), (\w -> windows W.swapUp))
+    , ((modMask, button5), (\_w -> windows W.swapDown))
+    , ((modMask, button4), (\_w -> windows W.swapUp))
     ]
 
 myLayout = smartBorders $ avoidStruts $ (Full ||| tiled ||| Mirror tiled)
@@ -187,14 +195,19 @@ myManageHook = composeAll
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
+myStartupHook :: X ()
 myStartupHook = return ()
 
 ------------------------------------------------------------------------
+xmobarCmdT :: String
 xmobarCmdT = "                         xmobar -o -B '#122c80' -F '#adbadd' -f 'xft:Terminus-12' -t '%StdinReader%'"
+xmobarCmdB :: String
 xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %battery% | %cpu% | %memory% ||| %enp2s0% ||| <fc=cyan>%date%</fc>'"
+
+main :: IO ()
 main = do dinT <- spawnPipe xmobarCmdT
-          dinB <- spawnPipe xmobarCmdB
-          xmonad $ ewmh $ defaultConfig {
+          _dinB <- spawnPipe xmobarCmdB
+          xmonad $ fullscreenFix $ XHE.ewmh $ defaultConfig {
       -- simple stuff
       terminal           = myTerminal,
       focusFollowsMouse  = myFocusFollowsMouse,
@@ -213,5 +226,35 @@ main = do dinT <- spawnPipe xmobarCmdT
       manageHook         = myManageHook,
       logHook            = dynamicLogWithPP $ {- dzenPP -} xmobarPP { ppOutput = hPutStrLn dinT },
 
-      startupHook        = myStartupHook
+      startupHook        = myStartupHook,
+
+      handleEventHook    = XHE.fullscreenEventHook
 }
+
+-- https://github.com/mpv-player/mpv/issues/888
+-- workarounds firefox fullscreen (on F11)
+fullscreenFix :: XConfig a -> XConfig a
+fullscreenFix c = c {
+                      startupHook = startupHook c +++ setSupportedWithFullscreen
+                    }
+                  where x +++ y = mappend x y
+
+setSupportedWithFullscreen :: X ()
+setSupportedWithFullscreen = withDisplay $ \dpy -> do
+    r <- asks theRoot
+    a <- getAtom "_NET_SUPPORTED"
+    c <- getAtom "ATOM"
+    supp <- mapM getAtom ["_NET_WM_STATE_HIDDEN"
+                         ,"_NET_WM_STATE_FULLSCREEN"
+                         ,"_NET_NUMBER_OF_DESKTOPS"
+                         ,"_NET_CLIENT_LIST"
+                         ,"_NET_CLIENT_LIST_STACKING"
+                         ,"_NET_CURRENT_DESKTOP"
+                         ,"_NET_DESKTOP_NAMES"
+                         ,"_NET_ACTIVE_WINDOW"
+                         ,"_NET_WM_DESKTOP"
+                         ,"_NET_WM_STRUT"
+                         ]
+    io $ changeProperty32 dpy r a c propModeReplace (fmap fromIntegral supp)
+
+    XHS.setWMName "xmonad"

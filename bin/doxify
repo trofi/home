@@ -57,5 +57,7 @@ make_doxygen_config() {
     cat # last pass :]
 }
 
+mkdir -p "${result}"
+
 make_doxygen_config "${repo}" "${result}" # show it first
 make_doxygen_config "${repo}" "${result}" | doxygen -

@@ -1,0 +1,61 @@
+#!/bin/bash
+
+usage() {
+    cat <<-EOF
+      usage: $1 <project-dir> <output-docs-dir>
+EOF
+    exit 1
+}
+
+[[ -z $1 ]] && usage
+[[ -z $2 ]] && usage
+
+repo=$1
+result=$2
+
+doxygen_set_value() {
+    local key=$1
+    local value=$2
+
+    sed -e 's,^\('${key}'[[:space:]]\+=\).*$,\1 '${value}' # OVERRIDEN by doxygen_set_value,g'
+}
+
+make_doxygen_config() {
+    local repo=$1
+    local result=$2
+    local repo_name=$(basename "${repo}")
+
+    doxygen -g - |
+    egrep -v ^#  | # drop comments
+    egrep -v ^$  | # skip empty
+    doxygen_set_value "PROJECT_NAME"   "${repo_name}"    |
+    doxygen_set_value "INTERNAL_DOCS"  "YES"             |
+    doxygen_set_value "INPUT"          "${repo}"         |
+    #doxygen_set_value "INPUT_ENCODING" "CP1251"          |
+    doxygen_set_value "RECURSIVE"      "YES"             |
+    doxygen_set_value "HTML_OUTPUT"    "${result}"       |
+    doxygen_set_value "HAVE_DOT"       "YES"             |
+    doxygen_set_value "CALL_GRAPH"     "YES"             |
+    doxygen_set_value "CALLER_GRAPH"   "YES"             |
+    doxygen_set_value "OUTPUT_LANGUAGE"   "Russian"      |
+    doxygen_set_value "SOURCE_BROWSER"    "YES"          |
+    doxygen_set_value "INLINE_SOURCES"    "YES"          |
+    doxygen_set_value "WARN_NO_PARAMDOC"  "YES"          |
+    doxygen_set_value "QUIET"             "YES"          |
+    doxygen_set_value "EXTRACT_STATIC"    "YES"          |
+    doxygen_set_value "GENERATE_LATEX"    "NO"           |
+    doxygen_set_value "STRIP_FROM_PATH"   "${repo}"      |
+    doxygen_set_value "STRIP_CODE_COMMENTS" "NO"         |
+    doxygen_set_value "MACRO_EXPANSION"     "YES"        |
+    doxygen_set_value "LAYOUT_FILE"         "DoxygenLayout.xml" |
+    # fun to have simplified macros for us
+    doxygen_set_value "PREDEFINED"         "__DOXYGEN__" |
+    # generates A LOT of docs
+    doxygen_set_value "EXTRACT_ALL"       "YES"          |
+    # buggy file names:
+    #doxygen_set_value "CREATE_SUBDIRS"    "YES"          |
+    cat # last pass :]
+}
+
+make_doxygen_config "${repo}" "${result}" # show it first
+make_doxygen_config "${repo}" "${result}" | doxygen -

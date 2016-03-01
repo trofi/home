@@ -11,12 +11,13 @@ PROFILE="${WM:-xmonad}"
 
 /usr/bin/start-pulseaudio-x11
 
+gpg-agent --daemon --enable-ssh-support \
+    --write-env-file "${HOME}/.gpg-agent-info"
+
 CURR_DIR="$RC_DIR"
 RC_DIR="$RC_DIR/$PROFILE" \
 \
    ck-launch-session \
    dbus-launch \
-   gpg-agent --daemon \
-   ssh-agent \
 \
 "$CURR_DIR"/"$PROFILE"/rc

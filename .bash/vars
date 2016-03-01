@@ -40,4 +40,10 @@ export ECHANGELOG_USER="Sergei Trofimovich <slyfox@gentoo.org>"
 #https://bugs.gentoo.org/show_bug.cgi?id=517342
 export PROMPT_COMMAND=
 
+if [[ -f ${HOME}/.gpg-agent-info ]]; then
+   . "${HOME}/.gpg-agent-info"
+   export GPG_AGENT_INFO
+   export SSH_AUTH_SOCK
+fi
+
 #End ~/.bash/vars

@@ -37,7 +37,7 @@ make_doxygen_config() {
     doxygen_set_value "HAVE_DOT"       "YES"             |
     doxygen_set_value "CALL_GRAPH"     "YES"             |
     doxygen_set_value "CALLER_GRAPH"   "YES"             |
-    doxygen_set_value "OUTPUT_LANGUAGE"   "Russian"      |
+    #doxygen_set_value "OUTPUT_LANGUAGE"   "Russian"      |
     doxygen_set_value "SOURCE_BROWSER"    "YES"          |
     doxygen_set_value "INLINE_SOURCES"    "YES"          |
     doxygen_set_value "WARN_NO_PARAMDOC"  "YES"          |

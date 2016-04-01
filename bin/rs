@@ -11,6 +11,10 @@ conf_args=(
     --ghc-options=-j4
 )
 
+test_args=(
+    # --show-details=streaming
+)
+
 for hcflag in ${HCFLAGS}; do
     conf_args+=(--ghc-options=${hcflag})
 done
@@ -29,14 +33,14 @@ case "$1" in
         shift
         ${0} configure ${conf_args[@]} "$@"
         ${0} build
-        ${0} test
+        ${0} test ${test_args[@]}
         ;;
     bht)
         shift
         ${0} configure ${conf_args[@]} "$@"
         ${0} build
         ${0} haddock --hyperlink-source
-        ${0} test
+        ${0} test ${test_args[@]}
         ;;
     h)
         shift

@@ -37,3 +37,9 @@ cpn() {
 
     echo "${c}/${pn}"
 }
+
+# gentooism: drop old git ebuilds and commit a result
+dr () {
+    git rm -- "$@"
+    repoman commit -m "$(cpn): drop old"
+}

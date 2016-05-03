@@ -1,0 +1,14 @@
+#!/bin/bash
+
+: ${CC=gcc}
+: ${CFLAGS=-O2}
+: ${LDFLAGS=-O1}
+: ${LIBS=}
+
+final_exe=$(mktemp)
+
+set -- ${CC} ${CFLAGS} ${LDFLAGS} "$@" -o "${final_exe}" ${LIBS}
+echo "$@"
+"$@" && "${final_exe}"
+
+rm -f "${final_exe}"

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-eatmydata /usr/bin/firefox "$@"
+exec eatmydata /usr/bin/firefox "$@"

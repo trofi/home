@@ -29,65 +29,76 @@ myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor :: String
 myFocusedBorderColor = "#ff0000"
 
+-- executes shell command in inplace shell context.
+--   @spawn "sleep 5"@ yields the following process tree:
+--     xmonad
+--     `- sh
+--        `- sleep
+--   @spawnx "sleep 5"@ yields the following process tree:
+--     xmonad
+--     `- sleep
+spawnx :: String -> X ()
+spawnx cmd = spawn $ unwords ["exec", cmd]
+
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
-    [ ((controlMask ,          xK_grave ), spawn $ XMonad.terminal conf)
-    , ((mod4Mask    ,          xK_grave ), spawn "xterm -e alsamixer" )
-    -- , ((mod4Mask    ,          xK_grave ), spawn "pavucontrol" )
+    [ ((controlMask ,          xK_grave ), spawnx $ XMonad.terminal conf)
+    , ((mod4Mask    ,          xK_grave ), spawnx "xterm -e alsamixer" )
+    -- , ((mod4Mask    ,          xK_grave ), spawnx "pavucontrol" )
 
     -- launch dmenu
-    , ((mod4Mask,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    , ((mod4Mask,               xK_p     ), spawnx "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
     , ((mod4Mask,               xK_b     ), sendMessage ToggleStruts)
 
     -- my proggies
-    , ((modMask .|. controlMask, xK_b     ), spawn "firefox")
-    , ((modMask .|. controlMask, xK_e     ), spawn "emacs")
-    , ((modMask .|. controlMask, xK_i     ), spawn "pidgin")
-    , ((modMask .|. controlMask, xK_l     ), spawn "liferea")
-    , ((modMask .|. controlMask, xK_t     ), spawn "tkabber")
-    , ((modMask .|. controlMask, xK_m     ), spawn "claws-mail")
-    , ((modMask .|. controlMask, xK_n     ), spawn "zim Notes")
-    , ((modMask .|. controlMask, xK_s     ), spawn "skypetab-ng")
+    , ((modMask .|. controlMask, xK_b     ), spawnx "firefox")
+    , ((modMask .|. controlMask, xK_e     ), spawnx "emacs")
+    , ((modMask .|. controlMask, xK_i     ), spawnx "pidgin")
+    , ((modMask .|. controlMask, xK_l     ), spawnx "liferea")
+    , ((modMask .|. controlMask, xK_t     ), spawnx "tkabber")
+    , ((modMask .|. controlMask, xK_m     ), spawnx "claws-mail")
+    , ((modMask .|. controlMask, xK_n     ), spawnx "zim Notes")
+    , ((modMask .|. controlMask, xK_s     ), spawnx "skypetab-ng")
 
     -- xmms2d
-    , ((mod4Mask               , xK_Home     ), spawn "xmms2 prev")
-    , ((mod4Mask               , xK_End      ), spawn "xmms2 next")
-    , ((mod4Mask               , xK_Insert   ), spawn "xmms2 play")
-    , ((mod4Mask               , xK_Delete   ), spawn "xmms2 pause")
-    , ((mod4Mask               , xK_Prior    ), spawn "xmms2 seek +30")
-    , ((mod4Mask               , xK_Next     ), spawn "xmms2 seek -30")
-    , ((mod4Mask               , xK_Up       ), spawn "xmms2 seek +20")
-    , ((mod4Mask               , xK_Down     ), spawn "xmms2 seek -30")
-    , ((mod4Mask               , xK_Right    ), spawn "xmms2 seek +10")
-    , ((mod4Mask               , xK_Left     ), spawn "xmms2 seek -10")
+    , ((mod4Mask               , xK_Home     ), spawnx "xmms2 prev")
+    , ((mod4Mask               , xK_End      ), spawnx "xmms2 next")
+    , ((mod4Mask               , xK_Insert   ), spawnx "xmms2 play")
+    , ((mod4Mask               , xK_Delete   ), spawnx "xmms2 pause")
+    , ((mod4Mask               , xK_Prior    ), spawnx "xmms2 seek +30")
+    , ((mod4Mask               , xK_Next     ), spawnx "xmms2 seek -30")
+    , ((mod4Mask               , xK_Up       ), spawnx "xmms2 seek +20")
+    , ((mod4Mask               , xK_Down     ), spawnx "xmms2 seek -30")
+    , ((mod4Mask               , xK_Right    ), spawnx "xmms2 seek +10")
+    , ((mod4Mask               , xK_Left     ), spawnx "xmms2 seek -10")
     -- xmms2d fun stuff
-    , ((mod4Mask               , xK_equal       ), spawn "xmms2 server config vocoder.speed 100")
-    , ((mod4Mask               , xK_KP_Add      ), spawn "xmms2 server config vocoder.speed $((`xmms2 server config vocoder.speed | cut -d' ' -f3` + 10))")
-    , ((mod4Mask               , xK_KP_Subtract ), spawn "xmms2 server config vocoder.speed $((`xmms2 server config vocoder.speed | cut -d' ' -f3` - 10))")
+    , ((mod4Mask               , xK_equal       ), spawnx "xmms2 server config vocoder.speed 100")
+    , ((mod4Mask               , xK_KP_Add      ), spawnx "xmms2 server config vocoder.speed $((`xmms2 server config vocoder.speed | cut -d' ' -f3` + 10))")
+    , ((mod4Mask               , xK_KP_Subtract ), spawnx "xmms2 server config vocoder.speed $((`xmms2 server config vocoder.speed | cut -d' ' -f3` - 10))")
 
     -- misc
-    , ((mod4Mask                 , xK_F8     ), spawn "~/.rc.d/x11/xmonad/mousekbd")
-    , ((mod4Mask                 , xK_F9     ), spawn "xrandr              --output VGA1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
-    , ((mod4Mask .|. controlMask , xK_F9     ), spawn "xrandr -s 1280x1024 --output VGA1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
-    , ((mod4Mask                 , xK_F10    ), spawn "~/bin/s2ram.sh")
-    , ((mod4Mask                 , xK_F11    ), spawn "xrdb ~/.Xdefaults")
-    , ((mod4Mask                 , xK_F12    ), spawn "xrandr              --output LVDS1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
-    , ((mod4Mask .|. controlMask , xK_F12    ), spawn "xrandr -s 1280x800  --output LVDS1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
+    , ((mod4Mask                 , xK_F8     ), spawnx "~/.rc.d/x11/xmonad/mousekbd")
+    , ((mod4Mask                 , xK_F9     ), spawnx "xrandr              --output VGA1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
+    , ((mod4Mask .|. controlMask , xK_F9     ), spawnx "xrandr -s 1280x1024 --output VGA1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
+    , ((mod4Mask                 , xK_F10    ), spawnx "~/bin/s2ram.sh")
+    , ((mod4Mask                 , xK_F11    ), spawnx "xrdb ~/.Xdefaults")
+    , ((mod4Mask                 , xK_F12    ), spawnx "xrandr              --output LVDS1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
+    , ((mod4Mask .|. controlMask , xK_F12    ), spawnx "xrandr -s 1280x800  --output LVDS1 --auto --primary; ~/.rc.d/x11/xmonad/wallpaper")
 
-    , ((mod3Mask                 , xK_e       ), spawn "set_kb_map 0") -- en_US
-    , ((mod3Mask                 , xK_r       ), spawn "set_kb_map 1") -- ru
-    , ((mod3Mask                 , xK_s       ), spawn "set_kb_map 2") -- se
-    , ((mod3Mask                 , xK_n       ), spawn "set_kb_map 3") -- no
-    , ((mod3Mask                 , xK_f       ), spawn "set_kb_map 4") -- fi
-    , ((mod3Mask                 , xK_f       ), spawn "set_kb_map 5") -- de
+    , ((mod3Mask                 , xK_e       ), spawnx "set_kb_map 0") -- en_US
+    , ((mod3Mask                 , xK_r       ), spawnx "set_kb_map 1") -- ru
+    , ((mod3Mask                 , xK_s       ), spawnx "set_kb_map 2") -- se
+    , ((mod3Mask                 , xK_n       ), spawnx "set_kb_map 3") -- no
+    , ((mod3Mask                 , xK_f       ), spawnx "set_kb_map 4") -- fi
+    , ((mod3Mask                 , xK_f       ), spawnx "set_kb_map 5") -- de
 
-    , ((0                        , xK_Scroll_Lock), spawn "xset dpms force standby")
-    , ((0                        , xK_Print),       spawn "~/bin/screenshot.sh")
+    , ((0                        , xK_Scroll_Lock), spawnx "xset dpms force standby")
+    , ((0                        , xK_Print),       spawnx "~/bin/screenshot.sh")
 
     -- launch gmrun
-    , ((mod4Mask .|. shiftMask, xK_p     ), spawn "gmrun")
+    , ((mod4Mask .|. shiftMask, xK_p     ), spawnx "gmrun")
 
     -- close focused window 
     , ((mod4Mask .|. shiftMask, xK_c     ), kill)

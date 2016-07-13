@@ -23,7 +23,6 @@ RC_DIR="$RC_DIR/$PROFILE" \
 \
    exec \
    \
-   ck-launch-session \
    dbus-launch \
 \
 "$CURR_DIR"/"$PROFILE"/rc

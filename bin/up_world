@@ -2,7 +2,7 @@
 
 sudo emerge -vuDN @world @preserved-rebuild \
     --keep-going \
-    --jobs="$(($(nproc) + 1))" \
+    --jobs=2 \
     --with-bdeps=y \
     --complete-graph \
     "$@"

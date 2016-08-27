@@ -198,7 +198,6 @@ myLayout = smartBorders $ avoidStruts $ (Full ||| tiled ||| Mirror tiled)
 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
     , className =? "Wine"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]

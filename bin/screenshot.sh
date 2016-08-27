@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DIR=~/archive/shots
 FILE="$(date "+%F-%H-%M-%S").png"

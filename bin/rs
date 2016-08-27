@@ -8,7 +8,8 @@ export LD_LIBRARY_PATH="$(pwd)/dist/build${LD_LIBRARY_PATH+:}${LD_LIBRARY_PATH}"
 conf_args=(
     --enable-executable-dynamic
     --enable-tests
-    --ghc-options=-j4
+    # https://ghc.haskell.org/trac/ghc/ticket/9221
+    --ghc-options="-j +RTS -A256M -qb0 -RTS"
 )
 
 test_args=(
@@ -22,7 +23,7 @@ done
 case "$1" in
     b)
         shift
-        ${0} configure ${conf_args[@]} "$@"
+        ${0} configure "${conf_args[@]}" "$@"
         ${0} build
         ;;
     bo)
@@ -31,25 +32,25 @@ case "$1" in
         ;;
     bt)
         shift
-        ${0} configure ${conf_args[@]} "$@"
+        ${0} configure "${conf_args[@]}" "$@"
         ${0} build
         ${0} test ${test_args[@]}
         ;;
     bht)
         shift
-        ${0} configure ${conf_args[@]} "$@"
+        ${0} configure "${conf_args[@]}" "$@"
         ${0} build
         ${0} haddock --hyperlink-source
-        ${0} test ${test_args[@]}
+        ${0} test "${test_args[@]}"
         ;;
     h)
         shift
-        ${0} configure ${conf_args[@]} "$@"
+        ${0} configure "${conf_args[@]}" "$@"
         ${0} haddock --hyperlink-source
         ;;
     s)
         shift
-        ${0} configure ${conf_args[@]} "$@"
+        ${0} configure "${conf_args[@]}" "$@"
         ${0} sdist
         ;;
     *)

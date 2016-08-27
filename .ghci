@@ -1,1 +1,5 @@
+:set -XBinaryLiterals
 :def hoogle \str -> return $ ":! hoogle --count=15 \"" ++ str ++ "\""
+import Data.Char as C
+import Text.Printf as TP
+import Control.Monad as CM

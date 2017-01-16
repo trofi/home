@@ -17,7 +17,6 @@ RC_DIR="$RC_DIR/$PROFILE" \
    exec \
    \
    dbus-launch \
-   gpg-agent --daemon \
    ssh-agent \
 \
 "$CURR_DIR"/"$PROFILE"/rc

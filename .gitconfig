@@ -1,8 +1,10 @@
 [color]
 	ui = auto
 [user]
-	email = siarheit@google.com
+	email = slyfox@gentoo.org
 	name = Sergei Trofimovich
 	signingkey = 0x71A1EE76611FF3AA
 [push]
 	default = simple
+[sendemail]
+	envelopeSender = auto

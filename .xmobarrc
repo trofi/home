@@ -4,7 +4,7 @@ Config { font = "-xos4-terminus-medium-*-*-*-*-160-*-*-*-*-iso10646-1"
        , position = Top
        , lowerOnStart = True
        , commands = [
-                      Run Network "enp2s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                      Run Network "wlp0s26u1u1" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Date "%A | %Y-%m-%d %H:%M" "date" 10

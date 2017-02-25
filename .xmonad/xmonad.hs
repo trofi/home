@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 import XMonad
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageDocks as XHD
 import XMonad.Util.Run
 import XMonad.Layout.NoBorders
 import qualified XMonad.Hooks.EwmhDesktops as XHE
@@ -212,12 +212,12 @@ myStartupHook = return ()
 xmobarCmdT :: String
 xmobarCmdT = "                         xmobar -o -B '#122c80' -F '#adbadd' -f 'xft:Terminus-12' -t '%StdinReader%'"
 xmobarCmdB :: String
-xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %battery% | %cpu% | %memory% ||| %enp2s0% ||| <fc=cyan>%date%</fc>'"
+xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:Terminus-10' -t '%StdinReader% }{ %battery% | %cpu% | %memory% ||| %wlp0s26u1u1% ||| <fc=cyan>%date%</fc>'"
 
 main :: IO ()
 main = do dinT <- spawnPipe xmobarCmdT
           _dinB <- spawnPipe xmobarCmdB
-          xmonad $ fullscreenFix $ XHE.ewmh $ defaultConfig {
+          xmonad $ fullscreenFix $ addFullScreenHook $ XHE.ewmh $ XHD.docks $ defaultConfig {
       -- simple stuff
       terminal           = myTerminal,
       focusFollowsMouse  = myFocusFollowsMouse,
@@ -236,10 +236,11 @@ main = do dinT <- spawnPipe xmobarCmdT
       manageHook         = myManageHook,
       logHook            = dynamicLogWithPP $ {- dzenPP -} xmobarPP { ppOutput = hPutStrLn dinT },
 
-      startupHook        = myStartupHook,
-
-      handleEventHook    = XHE.fullscreenEventHook
+      startupHook        = myStartupHook
 }
+
+addFullScreenHook :: XConfig a -> XConfig a
+addFullScreenHook c = c { handleEventHook = handleEventHook c <+> XHE.fullscreenEventHook }
 
 -- https://github.com/mpv-player/mpv/issues/888
 -- workarounds firefox fullscreen (on F11)

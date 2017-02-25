@@ -16,6 +16,7 @@
  '(save-place t nil (saveplace))
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t nil (paren))
+ '(scheme-program-name "guile")
  '(tool-bar-mode nil nil (tool-bar))
  '(transient-mark-mode t)
  '(visible-bell t)

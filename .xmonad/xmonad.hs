@@ -212,7 +212,7 @@ myStartupHook = return ()
 xmobarCmdT :: String
 xmobarCmdT = "                         xmobar -o -B '#122c80' -F '#adbadd' -f 'xft:xos 4 Terminus-12' -t '%StdinReader%'"
 xmobarCmdB :: String
-xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:xos 4 Terminus-10' -t '%StdinReader% }{ %battery% | %cpu% | %memory% ||| %wlp0s26u1u1% ||| <fc=cyan>%date%</fc>'"
+xmobarCmdB = "~/bin/player-status.sh | xmobar -b -B '#122c60' -F '#adbadd' -f 'xft:xos 4 Terminus-10' -t '%StdinReader% }{ %battery% | %cpu% | %memory% ||| %wl0% ||| <fc=cyan>%date%</fc>'"
 
 main :: IO ()
 main = do dinT <- spawnPipe xmobarCmdT

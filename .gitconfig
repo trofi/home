@@ -3,7 +3,7 @@
 [user]
 	email = slyfox@gentoo.org
 	name = Sergei Trofimovich
-	signingkey = 0x71A1EE76611FF3AA
+	signingkey = 0xED5E45E06F2AC293
 [push]
 	default = simple
 [sendemail]

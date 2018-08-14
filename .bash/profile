@@ -35,7 +35,7 @@ if [[ -d "$HOME/bin" ]] ; then
     path_prepend "$HOME/bin"
 fi
 
-if [ -d "$HOME/.cabal/bin" ] ; then
+if [[ -d "$HOME/.cabal/bin" ]] ; then
     path_prepend "$HOME/.cabal/bin"
 fi
 

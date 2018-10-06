@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FEATURES="$(portageq envvar FEATURES) strict stricter test ${FEATURES}" \
+FEATURES="strict stricter test ${FEATURES}" \
 USE="-profile -doc test ${USE}" \
 HCFLAGS="$(portageq envvar HCFLAGS) -O0 ${HCFLAGS}" \
 GITIFY=yes \

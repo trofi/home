@@ -11,3 +11,6 @@
 [sendemail]
 	envelopeSender = auto
 	confirm = auto
+[grep]
+	# My HDD does not like 8 concurrent readers
+	threads = 1

@@ -4,6 +4,6 @@ FEATURES="strict stricter test ${FEATURES}" \
 USE="-profile -doc test ${USE}" \
 HCFLAGS="$(portageq envvar HCFLAGS) -O0 ${HCFLAGS}" \
 GITIFY=yes \
-PORTAGE_TMPDIR=/tmp \
+PORTAGE_TMPDIR=${PORTAGE_TMPDIR:-/tmp} \
     \
     exec ebuild "$@"

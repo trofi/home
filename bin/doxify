@@ -2,7 +2,7 @@
 
 usage() {
     cat <<-EOF
-      usage: $1 <project-dir> <output-docs-dir>
+      usage: $0 <project-dir> <output-docs-dir>
 EOF
     exit 1
 }

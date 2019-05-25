@@ -2,7 +2,7 @@
 
 FEATURES="strict stricter test ${FEATURES}" \
 USE="-profile -doc test ${USE}" \
-HCFLAGS="$(portageq envvar HCFLAGS) -O0 ${HCFLAGS}" \
+HCFLAGS="$(portageq envvar HCFLAGS) ${HCFLAGS}" \
 GITIFY=yes \
 PORTAGE_TMPDIR=${PORTAGE_TMPDIR:-/tmp} \
     \

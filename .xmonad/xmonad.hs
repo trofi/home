@@ -12,9 +12,6 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-myTerminal :: String
-myTerminal = "xterm"
-
 myBorderWidth :: Dimension
 myBorderWidth = 1
 
@@ -40,12 +37,16 @@ myFocusedBorderColor = "#ff0000"
 spawnx :: String -> X ()
 spawnx cmd = spawn $ unwords ["exec", cmd]
 
+myTerminal :: String
+myTerminal = "alacritty"
+
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
-    [ ((controlMask ,          xK_grave ), spawnx $ XMonad.terminal conf)
-    , ((mod4Mask    ,          xK_grave ), spawnx "xterm -e alsamixer" )
+    [ ((controlMask ,          xK_grave ), spawnx myTerminal)
+    , ((mod4Mask    ,          xK_grave ), spawnx (myTerminal ++ " -e alsamixer"))
+    , ((modMask     ,          xK_grave ), spawnx "xterm" )
     -- , ((mod4Mask    ,          xK_grave ), spawnx "pavucontrol" )
 
     -- launch dmenu

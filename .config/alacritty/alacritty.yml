@@ -4,6 +4,8 @@ env:
   # TERM variable
   # TODO: Using xterm as at least Ctrl-<Up>/Ctrl-<Down> are not handled.
   TERM: xterm
+  # workaround slang bug into clamping bringt into non-bright
+  COLORTERM: ''
 
 window:
   # Window dimensions (changes require restart)

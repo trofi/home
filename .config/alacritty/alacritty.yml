@@ -1,5 +1,11 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+env:
+  # In TERM=alatritty mode alacritty database does
+  # not recognize 'Ctrl-Up' / 'Ctrl-Down'. We inject
+  # those manually below in keysbindings section.
+  TERM: 'xterm-256color'
+
 window:
   # Window dimensions (changes require restart)
   #
@@ -519,11 +525,9 @@ key_bindings:
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
   - { key: L,        mods: Control, chars: "\x0c"                            }
-  - { key: Home,     mods: Control, chars: "\x1b[1;5H"                       }
   - { key: Home,     mods: Alt,     chars: "\x1b[1;3H"                       }
   - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
   - { key: Home,                    chars: "\x1b[H",        mode: ~AppCursor }
-  - { key: End,      mods: Control, chars: "\x1b[1;5F"                       }
   - { key: End,      mods: Alt,     chars: "\x1b[1;3F"                       }
   - { key: End,                     chars: "\x1bOF",        mode: AppCursor  }
   - { key: End,                     chars: "\x1b[F",        mode: ~AppCursor }
@@ -553,12 +557,10 @@ key_bindings:
   - { key: Right,                   chars: "\x1b[C",        mode: ~AppCursor }
   - { key: Right,                   chars: "\x1bOC",        mode: AppCursor  }
   - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                       }
-  - { key: Up,       mods: Control, chars: "\x1b[1;5A"                       }
   - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                       }
   - { key: Up,                      chars: "\x1b[A",        mode: ~AppCursor }
   - { key: Up,                      chars: "\x1bOA",        mode: AppCursor  }
   - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                       }
-  - { key: Down,     mods: Control, chars: "\x1b[1;5B"                       }
   - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                       }
   - { key: Down,                    chars: "\x1b[B",        mode: ~AppCursor }
   - { key: Down,                    chars: "\x1bOB",        mode: AppCursor  }
@@ -623,3 +625,8 @@ key_bindings:
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                      }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
+  # mimic xterm / xterm-256color
+  - { key: Up,       mods: Control, chars: "\x1b[1;5A"                       }
+  - { key: Down,     mods: Control, chars: "\x1b[1;5B"                       }
+  - { key: End,      mods: Control, chars: "\x1b[1;5F"                       }
+  - { key: Home,     mods: Control, chars: "\x1b[1;5H"                       }

@@ -3,18 +3,16 @@
 # Begin ~/.bash/vars
 # Personal aliases and functions.
 
-if [ "$TERM" = "rxvt-unicode" ] ; then
-        export TERM=rxvt
-fi
-
-if [ "$TERM" = "xterm" ] ; then
-        export TERM=xterm-color
-        export COLORTERM=xterm
-fi
-
-if [ "$TERM" = "xterm-color" ] ; then
-        export COLORTERM=xterm
-fi
+case "$TERM" in
+    screen)
+        TERM=screen-256color
+        export TERM
+        ;;
+    xterm)
+        TERM=xterm-256color
+        export TERM
+        ;;
+esac
 
 export LANG=ru_RU.UTF-8
 export LANGUAGE=ru_BY:ru_RU:ru:en_GB:en

@@ -5,4 +5,5 @@ sudo emerge -vuDN @world @preserved-rebuild \
     --jobs=2 \
     --with-bdeps=y \
     --complete-graph \
+    --changed-deps \
     "$@"

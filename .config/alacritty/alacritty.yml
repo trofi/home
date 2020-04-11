@@ -300,7 +300,6 @@ colors:
 # section.
 mouse_bindings:
   - { mouse: Middle,              action: Paste }
-  - { mouse: Middle, mods: Shift, action: Paste }
 
 mouse:
   # Click settings

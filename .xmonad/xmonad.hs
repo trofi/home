@@ -44,8 +44,8 @@ myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
-    [ ((controlMask ,          xK_grave ), spawnx myTerminal)
-    , ((mod4Mask    ,          xK_grave ), spawnx (myTerminal ++ " -e tmux"))
+    [ ((controlMask ,          xK_grave ), spawnx (myTerminal ++ " -e tmux"))
+    , ((mod4Mask    ,          xK_grave ), spawnx myTerminal)
     , ((modMask     ,          xK_grave ), spawnx "xterm" )
 
     -- launch dmenu

@@ -45,9 +45,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- launch a terminal
     [ ((controlMask ,          xK_grave ), spawnx myTerminal)
-    , ((mod4Mask    ,          xK_grave ), spawnx (myTerminal ++ " -e alsamixer"))
-    , ((modMask     ,          xK_grave ), spawnx "xterm" )
-    -- , ((mod4Mask    ,          xK_grave ), spawnx "pavucontrol" )
+    , ((mod4Mask    ,          xK_grave ), spawnx (myTerminal ++ " -e tmux"))
+    -- , ((modMask     ,          xK_grave ), spawnx "xterm" )
 
     -- launch dmenu
     , ((mod4Mask,               xK_p     ), spawnx "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")

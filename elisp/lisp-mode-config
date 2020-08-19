@@ -3,4 +3,7 @@
 (setq inferior-lisp-program "/usr/bin/sbcl"
       lisp-indent-function 'common-lisp-indent-function)
 
-(slime-setup) (setq slime-net-coding-system 'utf-8-unix)
+(if (fboundp 'slime-setup)
+    (progn
+      (slime-setup)
+      (setq slime-net-coding-system 'utf-8-unix)))

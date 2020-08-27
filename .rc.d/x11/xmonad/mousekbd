@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xset m 2 3
+xset m 1 1
 #xset m 4
 xset r rate 200 40
 

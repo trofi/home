@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# run 'ewho' in a pachage's current directory
+# to find out what uses it, whether it's installed and so on.
+#
+# Assume being ran in ${CATEGORY}/${PN}/
+
+# gentooism: ${CATEGORY}/${PN} for current dir
+cpn() {
+    local d=$(pwd)
+    local pn=$(basename "$d")
+    local pd=$(dirname "$d")
+    local c=$(basename "$pd")
+
+    echo "${c}/${pn}"
+}
+
+cpn=$(cpn)
+
+echo "Package $cpn:"
+eix "^${cpn}$"
+
+echo "Noticed usage:"
+git grep -P "${cpn}" ../../ | cat
+
+echo "Outdated/pinned usage:"
+git grep -P "[<~=]${cpn}-\d+" ../../ | cat

@@ -24,4 +24,4 @@ echo "Noticed usage:"
 git grep -P "${cpn}" ../../ | cat
 
 echo "Outdated/pinned usage:"
-git grep -P "[<~=]${cpn}-\d+" ../../ | cat
+git grep -P "[<~]${cpn}-\d+" ../../ | cat

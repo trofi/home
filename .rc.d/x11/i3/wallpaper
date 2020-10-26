@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xsri --center-x --center-y ~/imgs/d0g.jpg

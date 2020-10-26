@@ -18,11 +18,25 @@ floating_modifier Mod1
 
 # my programs
 bindsym Control+grave  exec alacritty -e tmux
+bindsym Mod4+grave     exec alacritty -e alsamixer
 bindsym Mod1+grave     exec alacritty
+
 bindsym Mod1+Control+b exec firefox
 bindsym Mod1+Control+i exec pidgin
 bindsym Mod1+Control+l exec liferea
 bindsym Mod1+Control+m exec claws-mail
+
+# xmms2 control
+bindsym $mod+Home     exec --no-startup-id xmms2 prev
+bindsym $mod+End      exec --no-startup-id xmms2 next
+bindsym $mod+Insert   exec --no-startup-id xmms2 play
+bindsym $mod+Delete   exec --no-startup-id xmms2 pause
+bindsym $mod+Prior    exec --no-startup-id xmms2 seek +30
+bindsym $mod+Next     exec --no-startup-id xmms2 seek -30
+bindsym $mod+Up       exec --no-startup-id xmms2 seek +20
+bindsym $mod+Down     exec --no-startup-id xmms2 seek -30
+bindsym $mod+Right    exec --no-startup-id xmms2 seek +10
+bindsym $mod+Left     exec --no-startup-id xmms2 seek -10
 
 # kill focused window
 bindsym $mod+Shift+c kill

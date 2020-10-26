@@ -38,6 +38,9 @@ bindsym $mod+Down     exec --no-startup-id xmms2 seek -30
 bindsym $mod+Right    exec --no-startup-id xmms2 seek +10
 bindsym $mod+Left     exec --no-startup-id xmms2 seek -10
 
+bindsym Scroll_Lock   exec --no-startup-id xset dpms force standby
+bindsym Print         exec --no-startup-id ~/bin/screenshot.sh
+
 # kill focused window
 bindsym $mod+Shift+c kill
 

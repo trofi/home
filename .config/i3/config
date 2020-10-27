@@ -188,3 +188,12 @@ bar {
     }
     status_command i3status
 }
+
+# default layout override
+workspace_layout stacked
+
+# hide title by default
+default_border pixel 1
+
+# hide borders for a single-window case
+hide_edge_borders smart

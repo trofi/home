@@ -3,10 +3,15 @@ general {
         interval = 5
 }
 
+order += "read_file xmms2"
 order += "disk /tmp"
 order += "wireless _first_"
 order += "cpu_usage"
 order += "tztime local"
+
+read_file xmms2 {
+        path = "/tmp/i3status-xmms2"
+}
 
 disk "/tmp" {
         format = "/tmp: %avail"

@@ -1,0 +1,27 @@
+general {
+        colors = true
+        interval = 5
+}
+
+order += "disk /tmp"
+order += "wireless _first_"
+order += "cpu_usage"
+order += "tztime local"
+
+disk "/tmp" {
+        format = "/tmp: %avail"
+}
+
+wireless _first_ {
+        format_up = "W: %quality"
+        format_down = "W: down"
+}
+
+cpu_usage {
+        format = "cpu: %usage"
+}
+
+tztime local {
+        locale = "en_GB.UTF-8"
+        format = "%A, %Y-%m-%d %H:%M"
+}

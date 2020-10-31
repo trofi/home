@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
+import html
 import sys
 
-if   sys.argv[1] in ['irc', 'xmobar', 'none', 'tty']:
+if   sys.argv[1] in ['irc', 'xmobar', 'none', 'tty', 'pango']:
     pass
 else:
     print("ERROR: please choose available flavour")
@@ -13,6 +14,8 @@ flavour = sys.argv[1]
 def paint(color, text):
     if flavour == 'xmobar':
         return "<fc=%s>%s</fc>" % (color, text)
+    elif flavour == 'pango':
+        return "<span foreground='%s'>%s</span>" % (color, html.escape(text))
     elif flavour == 'irc':
         colors = { 'green'        : 3
                  , 'brightred'    : 4

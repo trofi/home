@@ -6,9 +6,9 @@
 
 (
     xmms2_status_file=/tmp/i3status-xmms2
-    printf "hello!" > "${xmms2_status_file}"
-    $HOME/bin/player-status-entry-persist.py none | while read l; do
-        printf "%s" "${l}" > "${xmms2_status_file}"
+    printf "<span>hello!</span>\n" > "${xmms2_status_file}"
+    $HOME/bin/player-status-entry-persist.py pango | while read l; do
+        printf "%s\n" "${l}" > "${xmms2_status_file}"
     done
 ) &
 

@@ -1,6 +1,8 @@
 general {
         colors = true
         interval = 5
+        markup = "pango"
+        output_format = "i3bar"
 }
 
 order += "read_file xmms2"

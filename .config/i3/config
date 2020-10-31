@@ -186,7 +186,8 @@ bar {
         background #122c80
         statusline #adbadd
     }
-    status_command i3status
+    #status_command i3status
+    status_command ~/bin/i3-status.sh
 }
 
 # default layout override

@@ -25,10 +25,11 @@ wireless _first_ {
 }
 
 cpu_usage {
-        format = "cpu: %usage"
+        format = "Cpu: %usage"
 }
 
 tztime local {
         locale = "en_GB.UTF-8"
-        format = "%A, %Y-%m-%d %H:%M"
+        format = "<span foreground='cyan'>%time</span>"
+        format_time = "%A | %Y-%m-%d %H:%M"
 }

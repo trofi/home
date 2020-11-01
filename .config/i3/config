@@ -97,15 +97,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1any"
-set $ws2 "2irc"
-set $ws3 "3jabber"
-set $ws4 "4any"
-set $ws5 "5liferea"
-set $ws6 "6web"
-set $ws7 "7mail"
-set $ws8 "8net"
-set $ws9 "9music"
+set $ws1 "1: any"
+set $ws2 "2: irc"
+set $ws3 "3: jabber"
+set $ws4 "4: any"
+set $ws5 "5: liferea"
+set $ws6 "6: web"
+set $ws7 "7: mail"
+set $ws8 "8: net"
+set $ws9 "9: music"
 
 # switch to workspace
 bindsym Control+F1 workspace number $ws1

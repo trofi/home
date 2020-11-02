@@ -200,3 +200,6 @@ default_border pixel 1
 
 # hide borders for a single-window case
 hide_edge_borders smart
+
+# allow browser to gain focus on link clocks from other workspaces
+focus_on_window_activation focus

@@ -193,7 +193,7 @@ bar {
 }
 
 # default layout override
-workspace_layout stacked
+workspace_layout stacking
 
 # hide title by default
 default_border pixel 1

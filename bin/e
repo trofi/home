@@ -1,9 +1,9 @@
 #!/bin/sh
 
-CFLAGS="$(portageq envvar CFLAGS)     -frecord-gcc-switches" \
-CXXFLAGS="$(portageq envvar CXXFLAGS) -frecord-gcc-switches" \
-FFLAGS="$(portageq envvar FFLAGS)     -frecord-gcc-switches" \
-FCFLAGS="$(portageq envvar FCFLAGS)   -frecord-gcc-switches" \
+CFLAGS="$(portageq envvar CFLAGS)     -frecord-gcc-switches ${E_DFLAGS--ggdb3}" \
+CXXFLAGS="$(portageq envvar CXXFLAGS) -frecord-gcc-switches ${E_DFLAGS--ggdb3}" \
+FFLAGS="$(portageq envvar FFLAGS)     -frecord-gcc-switches ${E_DFLAGS--ggdb3}" \
+FCFLAGS="$(portageq envvar FCFLAGS)   -frecord-gcc-switches ${E_DFLAGS--ggdb3}" \
 \
 LDFLAGS="$(portageq envvar LDFLAGS) -Wl,--defsym=__gentoo_check_ldflags__=0" \
 \

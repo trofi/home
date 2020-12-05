@@ -195,8 +195,9 @@ bar {
 # default layout override
 workspace_layout tabbed
 
-# hide title by default
-default_border pixel 1
+# always title: floating or not
+default_border normal
+default_floating_border normal
 
 # hide borders for a single-window case
 hide_edge_borders smart

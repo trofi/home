@@ -1,0 +1,4 @@
+set colored-completion-prefix on
+set page-completions off
+set colored-stats on
+set show-all-if-ambiguous on

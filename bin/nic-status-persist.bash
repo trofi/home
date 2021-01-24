@@ -49,7 +49,7 @@ do
 
     echo $(pp_bytes $(( ( rx - rx_prev ) / poll_interval ))) $(pp_bytes $(( ( tx - tx_prev ) / poll_interval )))
 
-    rc_prev=${rx}
+    rx_prev=${rx}
     tx_prev=${tx}
     sleep "${poll_interval}"
 done

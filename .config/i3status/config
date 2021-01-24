@@ -8,11 +8,16 @@ general {
 order += "read_file xmms2"
 order += "disk /tmp"
 order += "wireless _first_"
+order += "read_file nic_status"
 order += "cpu_usage"
 order += "tztime local"
 
 read_file xmms2 {
         path = "/tmp/i3status-xmms2"
+}
+
+read_file nic_status {
+        path = "/tmp/i3status-nic-usage"
 }
 
 disk "/tmp" {

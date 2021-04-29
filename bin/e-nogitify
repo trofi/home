@@ -5,8 +5,6 @@ CXXFLAGS="$(portageq envvar CXXFLAGS) -frecord-gcc-switches" \
 FFLAGS="$(portageq envvar FFLAGS)     -frecord-gcc-switches" \
 FCFLAGS="$(portageq envvar FCFLAGS)   -frecord-gcc-switches" \
 \
-LDFLAGS="$(portageq envvar LDFLAGS) -Wl,--defsym=__gentoo_check_ldflags__=0" \
-\
 FEATURES="$(portageq envvar FEATURES) strict stricter test ${FEATURES}" \
 USE="-profile -doc ${USE}" \
 HCFLAGS="$(portageq envvar HCFLAGS) -O0 ${HCFLAGS}" \

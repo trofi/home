@@ -1,13 +1,4 @@
 #!/bin/sh
 
-CFLAGS="$(portageq envvar CFLAGS)     -frecord-gcc-switches" \
-CXXFLAGS="$(portageq envvar CXXFLAGS) -frecord-gcc-switches" \
-FFLAGS="$(portageq envvar FFLAGS)     -frecord-gcc-switches" \
-FCFLAGS="$(portageq envvar FCFLAGS)   -frecord-gcc-switches" \
-\
-FEATURES="$(portageq envvar FEATURES) strict stricter test ${FEATURES}" \
-USE="-profile -doc ${USE}" \
-HCFLAGS="$(portageq envvar HCFLAGS) -O0 ${HCFLAGS}" \
-PORTAGE_TMPDIR=/tmp \
-    \
-    exec ebuild "$@"
+GITIFY= \
+    exec e "$@"

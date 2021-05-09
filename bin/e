@@ -8,7 +8,7 @@ FCFLAGS="$(portageq envvar FCFLAGS)   -frecord-gcc-switches ${E_DFLAGS--ggdb3}" 
 FEATURES="strict stricter test ${FEATURES}" \
 USE="-profile -doc test ${USE}" \
 HCFLAGS="$(portageq envvar HCFLAGS) ${HCFLAGS}" \
-GITIFY=yes \
+GITIFY=${GITIFY-yes} \
 PORTAGE_TMPDIR=${PORTAGE_TMPDIR:-/tmp} \
     \
     exec ebuild "$@"

@@ -1,6 +1,0 @@
-#solves problems on lame nat ant libs such as tsocks/tconn
-set ftp:fix-pasv-address no
-set ftp:charset CP1251
-# my nice prompt :]
-# set cmd:prompt '\e[1;34m[lftp] \e[1;30m\u@\h\w\e[1;31m>\e[0;39m'
-set cmd:prompt '\[\033[01;32m\][lftp] \[\033[01;33m\]\w\[\033[01;31m\]:\[\033[00m\]'

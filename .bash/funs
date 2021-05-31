@@ -4,7 +4,8 @@
 x(){
    xinit -- \
    "$@" \
-   -nolisten tcp
+   -nolisten tcp \
+   -dpi 192
 }
 
 wm (){

@@ -33,7 +33,6 @@ export MAILDIR=$HOME/.maildir
 export GROFF_NO_SGR=1
 export TSOCKS_CONFFILE=$HOME/.tscoks/conf
 export SDL_AUDIODRIVER=pulse
-export ECHANGELOG_USER="Sergei Trofimovich <slyfox@gentoo.org>"
 
 #https://bugs.gentoo.org/show_bug.cgi?id=517342
 export PROMPT_COMMAND=

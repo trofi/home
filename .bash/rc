@@ -3,7 +3,7 @@
 # Begin ~/.bash/rc
 # Personal aliases and functions.
 
-for cfg in dirs alias colors funs vars.rc
+for cfg in comp dirs alias colors funs vars.rc
 do
     [[ -f $HOME/.bash/${cfg} ]] && source "$HOME/.bash/${cfg}"
     [[ -f $HOME/.bash/${cfg}.local ]] && source "$HOME/.bash/${cfg}.local"

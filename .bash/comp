@@ -1,0 +1,67 @@
+# 'cdc' is similar to 'cd', but has advanced bash completion for subdirectories
+#
+# EXAMPLE:
+#     $ cdc nixpkgs*re2c<TAB>
+#   expands to
+#     $ cdc './dev/git/nixpkgs/pkgs/development/tools/parsing/re2c'
+#
+# Note how many paths we skip through to ge to the final directory.
+#
+# CAVEAT: completion can be really slow if your current directory
+# contains a ton of subdirectories.
+
+# Populate all candidate directories that match input glob.
+# Assumes presence of candidates() array in scope.
+__populate_candidates() {
+    local d
+
+    # Be careful to handle directories with whitespace
+    # and special characters that could break tokenization
+    while IFS= read -r -d $'\0' d; do
+        [[ $d == '.' ]] && continue
+        candidates+=("${d#./}")
+    done < <(find -path "*$1*" -type d -print0 2>/dev/null)
+}
+
+cdc() {
+    if [[ -d $1 ]]; then
+        cd "$1"
+        return
+    fi
+
+    local candidates=()
+    __populate_candidates "$1"
+
+    if [[ ${#candidates[@]} -eq 1 ]]; then
+        # TODO: would be nice to quote "a b" as "a\\ b"
+        # instead of "'a b'".
+        cd "${candidates[@]}"
+        return
+    fi
+
+    echo "ERROR: cdc: '$1' is ambiguous (${#candidates[@]}) entries. Can't cd."
+    return 1
+}
+
+# bash completion for 'cdc'
+# $1 - command itself (cdc)
+# $2 - currently substituted word
+# $3 - previous word
+# EXAMPLE: 'cdc a b c d' called as '$1 a b $3 $2'
+_cdc() {
+    local candidates=()
+    __populate_candidates "$2"
+
+    COMPREPLY=(
+        # multiple candidates, don't match on prefix. Just dump all.
+        # Also always quote output
+        "${candidates[@]@Q}"
+    )
+
+    if [[ ${#candidates[@]} -gt 1 ]]; then
+        # If there is ambiguity do not replace original argument
+        COMPREPLY+=( "${2}" )
+    fi
+}
+
+complete -F _cdc cdc

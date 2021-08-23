@@ -20,7 +20,7 @@ __populate_candidates() {
     while IFS= read -r -d $'\0' d; do
         [[ $d == '.' ]] && continue
         candidates+=("${d#./}")
-    done < <(find -path "*$1" -type d -print0 2>/dev/null)
+    done < <(find -path "*/$1" -type d -print0 2>/dev/null)
 }
 
 cdc() {

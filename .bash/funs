@@ -5,7 +5,8 @@ x(){
    xinit -- \
    "$@" \
    -nolisten tcp \
-   -dpi 192
+   -dpi 192 \
+   vt${XDG_VTNR}
 }
 
 wm (){

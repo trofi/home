@@ -1,3 +1,3 @@
-#!/bin/sh
+#! /bin/sh
 
 xsri --center-x --center-y ~/imgs/walls/wp.jpg

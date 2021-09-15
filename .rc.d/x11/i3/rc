@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/sh
 
 "$RC_DIR"/xset
 "$RC_DIR"/wallpaper

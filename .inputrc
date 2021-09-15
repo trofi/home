@@ -1,3 +1,7 @@
+# konsole and alacritty (alt + arrow key)
+#"\e[1;3C": forward-word
+#"\e[1;3D": backward-word
+
 set colored-completion-prefix on
 set page-completions off
 set colored-stats on

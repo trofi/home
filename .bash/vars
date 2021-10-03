@@ -22,14 +22,10 @@ export G_FILENAME_ENCODING="@locale"
 export G_BROKEN_FILENAMES=1
 export G_FILENAME_ENCODING G_BROKEN_FILENAMES
 
+export PAGER="less"
+export LESS="-isR"
 export PERLDOC_PAGER="less -isR"
 
-export PAGER="most"
-#export PAGER="less"
-#export LESS="-isR"
-
 export MAILDIR=$HOME/.maildir
-
-export GROFF_NO_SGR=1
 
 #End ~/.bash/vars

@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# wrap environment into cache path.
-# Usage example:
-#     $ with-ccache ./configure && with-ccache make
-
-PATH="/usr/lib/ccache/bin:$PATH" "$@"

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-ebuild_prog=${HOME}/bin/e \
-${HOME}/bin/bump_hp.real "$@"

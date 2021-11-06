@@ -1,9 +1,0 @@
-#!/bin/sh -e
-
-sudo emerge -vuDN @world @preserved-rebuild \
-    --keep-going \
-    --jobs=2 \
-    --with-bdeps=y \
-    --complete-graph \
-    --changed-deps \
-    "$@"

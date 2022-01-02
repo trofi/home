@@ -1,0 +1,3 @@
+#! /bin/sh
+
+nix-shell maintainers/scripts/update.nix  --argstr package "$@"

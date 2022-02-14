@@ -1,5 +1,6 @@
 [alias]
 	ru = remote update
+	rbsm = !git reset --hard $(git merge-base origin/staging origin/master)
 [color]
 	ui = auto
 [user]

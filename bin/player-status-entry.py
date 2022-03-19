@@ -1,4 +1,6 @@
-#!/usr/bin/python3
+#! /usr/bin/env nix-shell
+#! nix-shell -i python -p xmms2.python xmms2
+
 
 import html
 import sys

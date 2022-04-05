@@ -1,7 +1,6 @@
 #! /bin/sh
 
 xset m 1 1
-#xset m 4
 xset r rate 200 40
 
 # left and down arrows

@@ -16,3 +16,5 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[http]
+	cookiefile = /home/slyfox/.gitcookies

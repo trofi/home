@@ -1,0 +1,3 @@
+#! /bin/sh
+
+nixpkgs-review pr --no-shell --post-result "$@"

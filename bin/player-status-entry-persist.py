@@ -1,5 +1,7 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i python -p xmms2.python xmms2
+#! nix-shell --pure
+#! nix-shell -p xmms2.python xmms2
+#! nix-shell -i python
 
 import html
 import sys

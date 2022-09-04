@@ -11,7 +11,7 @@
     $HOME/bin/player-status-entry-persist.py pango | while read l; do
         printf "%s\n" "${l}" > "${xmms2_status_file}"
     done
-) &
+) 2>/tmp/i3status-xmms2-err &
 
 (
     nic_status_file=/tmp/i3status-nic-usage
@@ -19,7 +19,7 @@
     $HOME/bin/nic-status-persist.bash auto | while read rx tx; do
         printf "<span>rx:${rx} / tx:${tx}</span>\n" > "${nic_status_file}"
     done
-) &
+) 2>/tmp/i3status-nic-usage-err &
 
 i3status
 wait

@@ -8,7 +8,7 @@
 (
     xmms2_status_file=/tmp/i3status-xmms2
     printf "<span>hello!</span>\n" > "${xmms2_status_file}"
-    $HOME/bin/player-status-entry-persist.py pango | while read l; do
+    $HOME/bin/player-status.sh pango | while read l; do
         printf "%s\n" "${l}" > "${xmms2_status_file}"
     done
 ) 2>/tmp/i3status-xmms2-err &

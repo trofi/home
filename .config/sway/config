@@ -221,3 +221,5 @@ input type:pointer {
     accel_profile flat
     pointer_accel -0.3
 }
+
+exec ~/.rc.d/wayland/session-start.sh

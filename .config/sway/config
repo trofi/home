@@ -222,4 +222,8 @@ input type:pointer {
     pointer_accel -0.3
 }
 
-exec ~/.rc.d/wayland/session-start.sh
+set $my_cursor Adwaita
+set $my_cursor_size 32
+seat seat0 xcursor_theme $my_cursor $my_cursor_size
+
+exec ~/.rc.d/wayland/sway/run.sh

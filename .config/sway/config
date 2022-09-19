@@ -134,10 +134,10 @@ bindsym $mod+Shift+F9 move container to workspace number $ws9
 
 # reload the configuration file
 bindsym $mod+q reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindsym $mod+Shift+q restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# exit sway (logs you out of your session)
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your X session.' -B 'Yes, exit i3' 'swaymsg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -166,7 +166,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start swaybar to display a workspace bar (plus the system information swaystatus
 # finds out, if available)
 bar {
     font pango:Terminus 12
@@ -215,4 +215,9 @@ input type:keyboard {
     xkb_layout us,ru
     xkb_model 105
     xkb_options grp:caps_toggle
+}
+
+input type:pointer {
+    accel_profile flat
+    pointer_accel -0.3
 }

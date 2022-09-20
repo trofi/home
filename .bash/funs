@@ -1,6 +1,14 @@
 # Begin ~/.bash/funs
 # Personal functions
 
+w(){
+   dbus-launch \
+   ssh-agent \
+   \
+     sway
+}
+
+
 x(){
    xinit -- \
    "$@" \

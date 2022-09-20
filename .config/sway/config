@@ -34,7 +34,7 @@ bindsym $mod+Delete   exec --no-startup-id xmms2 pause
 bindsym $mod+Prior    exec --no-startup-id xmms2 seek +30
 bindsym $mod+Next     exec --no-startup-id xmms2 seek -30
 
-bindsym Scroll_Lock   exec --no-startup-id xset dpms force standby
+bindsym Scroll_Lock   exec --no-startup-id "sleep 0.5; killall -SIGUSR1 swayidle"
 bindsym Print         exec --no-startup-id ~/bin/screenshot.sh
 
 # kill focused window
@@ -227,3 +227,4 @@ set $my_cursor_size 32
 seat seat0 xcursor_theme $my_cursor $my_cursor_size
 
 exec ~/.rc.d/wayland/sway/run.sh
+exec swayidle -w timeout 3600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'

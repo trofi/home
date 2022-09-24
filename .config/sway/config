@@ -219,7 +219,6 @@ input type:keyboard {
 
 input type:pointer {
     accel_profile flat
-    pointer_accel -0.3
 }
 
 set $my_cursor Adwaita

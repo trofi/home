@@ -14,6 +14,7 @@ order += "tztime local"
 
 read_file xmms2 {
         path = "/tmp/i3status-xmms2"
+        max_characters = 2048
 }
 
 read_file nic_status {

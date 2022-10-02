@@ -11,3 +11,5 @@ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 gsettings set org.gnome.desktop.interface cursor-size 32
+
+xrdb -merge "$HOME/.Xresources"

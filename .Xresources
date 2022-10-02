@@ -78,8 +78,8 @@ URxvt.pastableTabs:   false
 Emacs.geometry:       124x50+0+0
 XEmacs.geometry:       124x50+0+0
 
-!!Xft.dpi: 96
-Xft.dpi: 192
+Xft.dpi: 96
+!!Xft.dpi: 192
 
 Xcursor.theme: Adwaita
 Xcursor.size: 64

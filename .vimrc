@@ -18,4 +18,7 @@ set shiftwidth=4
 " always render tabs even if a single file is open
 set showtabline=2
 
+" do not insert tabs unless requested
+set expandtab
+
 " End .vimrc

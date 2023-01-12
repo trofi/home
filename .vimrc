@@ -21,4 +21,7 @@ set showtabline=2
 " do not insert tabs unless requested
 set expandtab
 
+set list
+set listchars=tab:<->,trail:.
+
 " End .vimrc

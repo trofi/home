@@ -15,4 +15,7 @@ set fencs=utf-8,koi8-r
 set cindent
 set shiftwidth=4
 
+" always render tabs even if a single file is open
+set showtabline=2
+
 " End .vimrc

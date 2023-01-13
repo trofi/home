@@ -6,7 +6,7 @@
 " - last position autosave
 silent! source $VIMRUNTIME/defaults.vim
 
-set background=dark
+colorscheme darkblue
 set ruler
 
 set encoding=utf-8

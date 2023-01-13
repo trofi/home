@@ -33,5 +33,6 @@ set colorcolumn=72
 
 " keep latest search highlighted
 set hlsearch
+highlight ColorColumn ctermbg=darkgray guibg=darkgray
 
 " End .vimrc

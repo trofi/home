@@ -28,4 +28,7 @@ set expandtab
 set list
 set listchars=tab:<->,trail:.
 
+" show preferred boundary
+set colorcolumn=72
+
 " End .vimrc

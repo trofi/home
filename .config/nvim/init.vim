@@ -1,1 +1,1 @@
-/home/slyfox/.vimrc
+../../.vimrc

@@ -7,6 +7,9 @@
 silent! source $VIMRUNTIME/defaults.vim
 
 colorscheme darkblue
+" default color is invisioble blue-on-blue
+highlight MatchParen ctermbg=green
+
 set ruler
 
 set encoding=utf-8

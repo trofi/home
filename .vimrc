@@ -1,5 +1,3 @@
-" Begin .vimrc
-
 " Load various defaults:
 " - syntax highlightling,
 " - language dependent indentation
@@ -45,5 +43,3 @@ if !has('nvim')
     " nvim does not have 'term' attribute
     set term=xterm-256color
 endif
-
-" End .vimrc

@@ -32,10 +32,15 @@ set list
 set listchars=tab:<->,trail:.
 
 " show preferred boundary
-set colorcolumn=72
+set colorcolumn=73
 
 " keep latest search highlighted
 set hlsearch
 highlight ColorColumn ctermbg=darkgray guibg=darkgray
+
+" vim enables xterm-style Ctrl-<arrows> keys based on $TERM variable
+" name. term=screen-256color does not trigger it. Let's work it around
+" by clobbering it.
+set term=xterm-256color
 
 " End .vimrc

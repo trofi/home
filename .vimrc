@@ -41,6 +41,9 @@ highlight ColorColumn ctermbg=darkgray guibg=darkgray
 " vim enables xterm-style Ctrl-<arrows> keys based on $TERM variable
 " name. term=screen-256color does not trigger it. Let's work it around
 " by clobbering it.
-set term=xterm-256color
+if !has('nvim')
+    " nvim does not have 'term' attribute
+    set term=xterm-256color
+endif
 
 " End .vimrc

@@ -17,6 +17,9 @@ set fencs=utf-8,koi8-r
 " just maintain the indent
 set autoindent
 
+" copy the indentation style from previous line
+set copyindent
+
 " use 4 spaces for indent
 set shiftwidth=4
 

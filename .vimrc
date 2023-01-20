@@ -20,6 +20,9 @@ set autoindent
 " copy the indentation style from previous line
 set copyindent
 
+" do preserve tab/space mix on change
+set preserveindent
+
 " use 4 spaces for indent
 set shiftwidth=4
 

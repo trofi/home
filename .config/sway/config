@@ -137,7 +137,7 @@ bindsym $mod+q reload
 # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindsym $mod+Shift+q restart
 # exit sway (logs you out of your session)
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your X session.' -B 'Yes, exit i3' 'swaymsg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your X session.' -B 'Yes, exit sway' 'swaymsg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

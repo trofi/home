@@ -1,11 +1,11 @@
 " Load various defaults:
-" - syntax highlightling,
+" - syntax highlighting,
 " - language dependent indentation
 " - last position autosave
 silent! source $VIMRUNTIME/defaults.vim
 
 colorscheme darkblue
-" default color is invisioble blue-on-blue
+" default color is invisible blue-on-blue
 highlight MatchParen ctermbg=green
 
 set ruler

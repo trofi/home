@@ -49,3 +49,9 @@ if !has('nvim')
     " nvim does not have 'term' attribute
     set term=xterm-256color
 endif
+
+" allow :find to do subdirectry search and use globs for search
+set path+=**
+
+let g:netrw_banner=0 " avoid big banner
+let g:netrw_liststyle=3 " tree view

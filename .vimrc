@@ -55,3 +55,15 @@ set path+=**
 
 let g:netrw_banner=0 " avoid big banner
 let g:netrw_liststyle=3 " tree view
+
+" Emacs-style window scroll 1 line up and down
+:map <C-Up> <C-y>
+:map <C-Down> <C-e>
+
+" Save current file contents
+:imap <F2> <Esc>:w<CR>a
+:vmap <F2> <Esc>:w<CR>v
+:nmap <F2> :w<CR>
+
+:map  <F10> <Esc>:q<CR>
+:imap <F10> <Esc>:q<CR>

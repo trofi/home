@@ -74,6 +74,8 @@ let g:netrw_liststyle=3 " tree view
 
 " Delete current line, mcedit style
 :nmap <F8> dd
+:imap <F8> <Esc>ddi
+:vmap <F8> <Esc>ddi
 
 " Exit from editor, mcedit style
 :map  <F10> <Esc>:q<CR>

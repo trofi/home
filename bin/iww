@@ -6,5 +6,6 @@ dir=$1; shift # TODO: iterate until '--'
 
 while inotifywait -r -e close_write "$dir"
 do
+    sleep 0.1 # allow other changes that follow to happen: write/close/move
     "$@"
 done

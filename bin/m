@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
 # clar the playlist and pull it into xmms2
-m () {
-  xmms2 clear
-  local was_playlist=no
-  for pl in *.cue *.Cue
-  do
-      if [ -f "$pl" ]; then
-          was_playlist=yes
-          xmms2 addpls "$pl"
-      fi
-  done
-  if [ "$was_playlist" = "no" ]; then
-      xmms2 add .
-  fi
-}
+xmms2 clear
+
+was_playlist=no
+for pl in *.cue *.Cue; do
+    if [ -f "$pl" ]; then
+        was_playlist=yes
+        xmms2 addpls "$pl"
+    fi
+done
+
+if [ "$was_playlist" = "no" ]; then
+    xmms2 add .
+fi

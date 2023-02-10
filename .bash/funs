@@ -39,17 +39,3 @@ m () {
   fi
 }
 
-# gentooism: ${CATEGORY}/${PN} for current dir
-cpn() {
-    local d=$(pwd)
-    local pn=$(basename "$d")
-    local c=$(basename "$(dirname "$d")")
-
-    echo "${c}/${pn}"
-}
-
-# gentooism: drop old git ebuilds and commit a result
-dr () {
-    git rm -- "$@"
-    repoman commit -m "$(cpn): drop old"
-}

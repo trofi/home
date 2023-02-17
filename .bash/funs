@@ -8,19 +8,3 @@ w(){
      sway
 }
 
-
-x(){
-   xinit -- \
-   "$@" \
-   -nolisten tcp \
-   -dpi 192 \
-   vt${XDG_VTNR}
-}
-
-wm (){
-  # undone
-  _WM="$1"
-  shift
-  WM="$_WM" x "$@"
-}
-

@@ -54,26 +54,6 @@ XTerm*VT100*color15: white
 XTerm*VT100*colorUL: yellow
 XTerm*VT100*colorBD: white
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-Rxvt.visualBell: true
-Rxvt.background: black
-Rxvt.foreground: white
-Rxvt.font:       9x15
-Rxvt.saveLines:  10000
-Rxvt.geometry:   90x40
-
-URxvt.visualBell:     true
-URxvt.background:     black
-URxvt.foreground:     white
-URxvt.font:           -xos4-terminus-medium-*-*-*-*-160-*-*-*-*-iso10646-1
-URxvt.boldFont:       -xos4-terminus-medium-*-*-*-*-160-*-*-*-*-iso10646-1
-URxvt.saveLines:      10000
-URxvt.geometry:       105x45
-URxvt.pastableTabs:   false
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 !!Emacs.geometry:       120x52+20+0
 Emacs.geometry:       124x50+0+0
 XEmacs.geometry:       124x50+0+0

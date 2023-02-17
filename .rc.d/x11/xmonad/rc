@@ -1,8 +1,0 @@
-#!/bin/bash
-
-"$RC_DIR"/xset
-"$RC_DIR"/wallpaper
-"$RC_DIR"/mousekbd
-"$RC_DIR"/xrdb
-
-exec "$RC_DIR"/xmonad

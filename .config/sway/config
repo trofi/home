@@ -207,6 +207,8 @@ focus_on_window_activation focus
 
 # display-specific
 output DP-3 scale 2.0
+# my old i915 that does not support 4k
+output HDMI-A-2 mode 1920x1080@60Hz
 
 input type:keyboard {
     repeat_delay 200

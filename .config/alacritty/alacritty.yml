@@ -101,6 +101,7 @@ font:
   # Normal (roman) font face
   normal:
     #family: Anonymous Pro
+    #family: Fantasque Sans Mono
     #family: Fira Code
     #family: Hack
     #family: IBM Plex Mono

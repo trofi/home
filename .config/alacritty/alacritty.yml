@@ -100,11 +100,11 @@ env:
 font:
   # Normal (roman) font face
   normal:
-    #family: Liberation Mono
+    #family: Anonymous Pro
     #family: IBM Plex Mono
-    #family: Terminus
+    #family: Liberation Mono
     family: Roboto Mono
-    #family: Ubuntu Mono
+    #family: Terminus
     # The `style` can be specified to pick a specific face.
     #style: Regular
 

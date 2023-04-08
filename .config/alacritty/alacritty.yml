@@ -101,6 +101,7 @@ font:
   # Normal (roman) font face
   normal:
     #family: Anonymous Pro
+    #family: Fira Code
     #family: IBM Plex Mono
     #family: Liberation Mono
     family: Roboto Mono

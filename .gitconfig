@@ -1,6 +1,7 @@
 [alias]
 	ru = remote update
 	rbsm = !git reset --hard $(git merge-base origin/staging origin/master)
+	wdiff = diff --word-diff
 [color]
 	ui = auto
 [user]

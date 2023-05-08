@@ -12,6 +12,10 @@ $VERSION = "2.1";
     changed	=> "Mon 08 Jan 21:28:53 BST 2018",
 );
 
+# For nick hashing
+use Digest::SHA;
+use Math::BigInt;
+
 # Settings:
 #   nickcolor_colors: List of color codes to use.
 #   e.g. /set nickcolor_colors 2 3 4 5 6 7 9 10 11 12 13
@@ -74,12 +78,7 @@ sub sig_nick {
 sub simple_hash {
   my ($string) = @_;
   chomp $string;
-  my @chars = split //, $string;
-  my $counter;
-
-  foreach my $char (@chars) {
-    $counter += ord $char;
-  }
+  my $counter = Math::BigInt->from_hex(Digest::SHA::sha256_hex($string));
 
   my @colors = split / /, Irssi::settings_get_str('nickcolor_colors');
   $counter = $colors[$counter % @colors];

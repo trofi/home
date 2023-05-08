@@ -29,7 +29,7 @@ $VERSION = "2.1";
 #   This will truncate nicknames at 7 characters and make them right aligned
 
 my %saved_colors;
-my %session_colors = {};
+my %session_colors;
 my %saved_nicks; # To store each channel's last nickname
 
 sub load_colors {
@@ -228,6 +228,11 @@ sub cmd_color {
     foreach my $nick (keys %saved_colors) {
       Irssi::print (chr (3) . sprintf("%02d", $saved_colors{$nick}) . "$nick" .
 		    chr (3) . "1 ($saved_colors{$nick})");
+    }
+    Irssi::print ("\nSession Colors:");
+    foreach my $nick (keys %session_colors) {
+      Irssi::print (chr (3) . sprintf("%02d", $session_colors{$nick}) . "$nick" .
+		    chr (3) . "1 ($session_colors{$nick})");
     }
   } elsif ($op eq "preview") {
     Irssi::print ("\nAvailable colors:");

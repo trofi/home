@@ -1,7 +1,9 @@
 " To include the config add the following linke into your vifmrc:
 " source $MYVIFMRC.local
 
+" Disable sync writes, speed up file copies on btrfs.
 set iooptions=fastfilecloning
+
 " %A - file permissions
 " %u:%g - user:group
 " %s - human readable file size

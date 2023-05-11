@@ -2,3 +2,10 @@
 " source $MYVIFMRC.local
 
 set iooptions=fastfilecloning
+" %A - file permissions
+" %u:%g - user:group
+" %s - human readable file size
+" %d - file modification date
+" %T - symlink target (if exists)
+" %[ / %] - expand if at least one macro inside is not empty
+set statusline="%A %10u:%-7g %15s %20d%[ -> %T%]"

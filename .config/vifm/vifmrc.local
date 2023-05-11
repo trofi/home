@@ -1,0 +1,4 @@
+" To include the config add the following linke into your vifmrc:
+" source $MYVIFMRC.local
+
+set iooptions=fastfilecloning

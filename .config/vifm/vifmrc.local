@@ -11,3 +11,6 @@ set iooptions=fastfilecloning
 " %T - symlink target (if exists)
 " %[ / %] - expand if at least one macro inside is not empty
 set statusline="%A %10u:%-7g %15s %20d%[ -> %T%]"
+
+" show all dotfiles
+set dotfiles

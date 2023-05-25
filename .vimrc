@@ -80,3 +80,6 @@ let g:netrw_liststyle=3 " tree view
 " Exit from editor, mcedit style
 :map  <F10> <Esc>:q<CR>
 :imap <F10> <Esc>:q<CR>
+
+" spelling configuration
+setlocal spelllang=en_gb,ru

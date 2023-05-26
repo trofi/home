@@ -85,7 +85,7 @@ try:
                     , 'plugin/*'
                     , 'client/*'
                     , '*']
-    
+
     show(' '.join(map( (lambda c: paint(*c))
                      ,       [ ('cyan',   "<%s>"    % mdata.get('artist', '?'))
                              #, ('green',  "%s"       % '-')

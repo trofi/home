@@ -1,3 +1,3 @@
 #!/bin/sh
 
-find "$1" -type f -exec /usr/sbin/filefrag \{} + | grep -v ': 1 extent found' | grep -v ': 0 extents found'
+find "$1" -type f -exec filefrag \{} + | grep -v ': 1 extent found' | grep -v ': 0 extents found'

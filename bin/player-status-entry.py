@@ -4,9 +4,13 @@
 #! nix-shell -i python
 
 import html
+import locale
 import sys
 
-if   sys.argv[1] in ['irc', 'xmobar', 'none', 'tty', 'pango']:
+import xmmsclient
+import xmmsvalue
+
+if sys.argv[1] in ['irc', 'xmobar', 'none', 'tty', 'pango']:
     pass
 else:
     print("ERROR: please choose available flavour")
@@ -49,32 +53,8 @@ def paint(color, text):
         print("ERROR: bad flavour: %s" % flavour)
         exit(1)
 
-import locale
-
 def show(s):
     print(s)
-
-import xmmsclient
-
-xc = xmmsclient.XMMSSync('xmobar-tray')
-try:
-    xc.connect()
-except IOError as e:
-    print("ERROR: %s" % e)
-    exit(1)
-
-mid   = xc.playback_current_id()
-mdata = xc.medialib_get_info(mid)
-
-# set segmet more prioritized
-mdata.sources = [ 'client/xmobar-tray'
-                , 'plugin/segment'
-                # , 'plugin/mad'   # over id3v2
-                , 'plugin/id3v2' # over id3v1
-                , 'server'
-                , 'plugin/*'
-                , 'client/*'
-                , '*']
 
 def pp_duration(milliseconds):
     result = ""
@@ -89,12 +69,32 @@ def pp_duration(milliseconds):
     if seconds  > 0 or started_output: result += ("%ds"  % (seconds % 60)); started_output = True
     return result
 
-show(' '.join(map( (lambda c: paint(*c))
-                 ,       [ ('cyan',   "<%s>"    % mdata.get('artist', '?'))
-                         #, ('green',  "%s"       % '-')
-                         , ('yellow', "[%s]"     % mdata.get('album', '?'))
-                         #, ('green',  "%s"       % '-')
-                         , ('red',    "%s"       % mdata.get('title', '?'))
-                         , ('cyan',   "[%dkbps]" % (mdata.get('bitrate', 0) / 1000))
-                         , ('green',  "%s"       % pp_duration(mdata.get('duration', 0)))
-                         ])))
+try:
+    xc = xmmsclient.XMMSSync('xmobar-tray')
+    xc.connect()
+
+    mid   = xc.playback_current_id()
+    mdata = xc.medialib_get_info(mid)
+
+    # set segmet more prioritized
+    mdata.sources = [ 'client/xmobar-tray'
+                    , 'plugin/segment'
+                    # , 'plugin/mad'   # over id3v2
+                    , 'plugin/id3v2' # over id3v1
+                    , 'server'
+                    , 'plugin/*'
+                    , 'client/*'
+                    , '*']
+    
+    show(' '.join(map( (lambda c: paint(*c))
+                     ,       [ ('cyan',   "<%s>"    % mdata.get('artist', '?'))
+                             #, ('green',  "%s"       % '-')
+                             , ('yellow', "[%s]"     % mdata.get('album', '?'))
+                             #, ('green',  "%s"       % '-')
+                             , ('red',    "%s"       % mdata.get('title', '?'))
+                             , ('cyan',   "[%dkbps]" % (mdata.get('bitrate', 0) / 1000))
+                             , ('green',  "%s"       % pp_duration(mdata.get('duration', 0)))
+                             ])))
+except Exception as e:
+    print("ERROR: %r" % e)
+    exit(1)

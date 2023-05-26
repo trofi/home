@@ -93,7 +93,11 @@ def pp_song(mdata_v):
                              ])))
 
 xc = xmmsclient.XMMS('xmobar-tray')
-xc.connect()
+try:
+    xc.connect()
+except IOError as e:
+    print("ERROR: %s" % e)
+    exit(1)
 
 def pci_cb(mid_v):
     mid = mid_v.value()

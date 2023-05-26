@@ -57,7 +57,11 @@ def show(s):
 import xmmsclient
 
 xc = xmmsclient.XMMSSync('xmobar-tray')
-xc.connect()
+try:
+    xc.connect()
+except IOError as e:
+    print("ERROR: %s" % e)
+    exit(1)
 
 mid   = xc.playback_current_id()
 mdata = xc.medialib_get_info(mid)

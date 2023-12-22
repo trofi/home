@@ -103,11 +103,12 @@ font:
     #family: Anonymous Pro
     #family: Fantasque Sans Mono
     #family: Fira Code
-    family: Hack
+    #family: Hack
     #family: IBM Plex Mono
     #family: JetBrains Mono
     #family: Liberation Mono
     #family: Roboto Mono
+    family: Source Code Pro
     #family: Terminus
     #family: Terminus (TTF)
     #family: Victor Mono

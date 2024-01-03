@@ -39,10 +39,11 @@ glyph_offset = { x = -1, y = -2 }
 [keyboard]
 bindings = [
   # mimic xterm / xterm-256color
-  { chars = "\u001B[1;5A", key = "Up",   mods = "Control" },
-  { chars = "\u001B[1;5B", key = "Down", mods = "Control" },
-  { chars = "\u001B[1;5F", key = "End",  mods = "Control" },
-  { chars = "\u001B[1;5H", key = "Home", mods = "Control" },
+  { key = "Insert",   mods = "Shift",     action = "Paste" },
+  { key = "Up",       mods = "Control",   chars = "\u001B[1;5A" },
+  { key = "Down",     mods = "Control",   chars = "\u001B[1;5B" },
+  { key = "End",      mods = "Control",   chars = "\u001B[1;5F" },
+  { key = "Home",     mods = "Control",   chars = "\u001B[1;5H" },
 ]
 
 [selection]

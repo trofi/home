@@ -611,12 +611,6 @@ hide_when_typing = false
 action = "Paste"
 mouse = "Middle"
 
-[mouse.double_click]
-threshold = 300
-
-[mouse.triple_click]
-threshold = 300
-
 [selection]
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"

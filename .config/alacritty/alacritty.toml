@@ -30,6 +30,7 @@ TERM = "xterm-256color"
 
 [font]
 normal.family = "Source Code Pro"
+bold.family = "Source Code Pro Semibold"
 size = 13.0
 # space around glyph
 offset = { x = -2, y = -4 }

@@ -166,30 +166,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start swaybar to display a workspace bar (plus the system information swaystatus
-# finds out, if available)
 bar {
-    font pango:Roboto 11.5
-    position top
-    workspace_buttons yes
-
-    colors {
-        background #122c80
-        statusline #adbadd
-    }
-}
-
-bar {
-    font pango:Roboto 11.5
-    position bottom
-    workspace_buttons no
-
-    colors {
-        background #122c80
-        statusline #adbadd
-    }
-    #status_command i3status
-    status_command ~/bin/i3-status.sh
+    swaybar_command waybar
 }
 
 # default layout override

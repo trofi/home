@@ -1,0 +1,77 @@
+[{
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "spacing": 4, // Gaps between modules (4px)
+
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "sway/language",
+    ],
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", "S"],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "NOSLEEP",
+            "deactivated": "SLEEP"
+        }
+    },
+},{
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "spacing": 4, // Gaps between modules (4px)
+
+    "modules-left": [
+    ],
+    "modules-center": [
+        "custom/xmms2",
+    ],
+    "modules-right": [
+        "disk",
+        "network",
+        "cpu",
+        "clock",
+    ],
+
+    "custom/xmms2": {
+        "format": "{}",
+        "exec": "$HOME/bin/player-status-entry-persist.py pango",
+    },
+
+    "disk": {
+        "path": "/tmp",
+        "interval": 30,
+        "format": "{path}: {free}",
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%A|%Y-%m-%d %H:%M}",
+        "locale": "en_GB.UTF-8",
+    },
+    "cpu": {
+        "format": "Cpu: {usage}%",
+        "tooltip": false
+    },
+    "network": {
+        "interval": 5,
+        "format-wifi": "W: {signalStrength}% | rx:{bandwidthUpBytes} tx:{bandwidthDownBytes}",
+        "format-disconnected": "W: down",
+    },
+}]
+

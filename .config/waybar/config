@@ -1,6 +1,6 @@
 [{
     "position": "top", // Waybar position (top|bottom|left|right)
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 10, // Gaps between modules (4px)
 
     "modules-left": [
         "sway/workspaces",
@@ -35,7 +35,7 @@
     },
 },{
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 10, // Gaps between modules (4px)
 
     "modules-left": [
     ],

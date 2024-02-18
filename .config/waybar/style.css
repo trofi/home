@@ -54,3 +54,13 @@ button:hover {
 #clock {
     color: cyan;
 }
+
+#cpu.one-core {
+    color: lime;
+}
+#cpu.some-cores {
+    color: yellow;
+}
+#cpu.all-cores {
+    color: red;
+}

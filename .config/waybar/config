@@ -65,6 +65,11 @@
         "locale": "en_GB.UTF-8",
     },
     "cpu": {
+        "states": {
+            "one-core": 7,
+            "some-cores": 20,
+            "all-cores": 99,
+        },
         "format": "Cpu: {usage}%",
         "tooltip": false
     },

@@ -47,10 +47,6 @@ button:hover {
     background-color: #64727D;
 }
 
-#network {
-    color: lime;
-}
-
 #clock {
     color: cyan;
 }
@@ -63,4 +59,12 @@ button:hover {
 }
 #cpu.all-cores {
     color: red;
+}
+
+#network {
+    color: lime;
+}
+
+#clock, #cpu, #network, #disk, #custom-xmms2 {
+    background-color: rgba(0, 0, 0, 0.75);
 }

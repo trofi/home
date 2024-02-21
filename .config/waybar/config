@@ -75,7 +75,7 @@
     },
     "network": {
         "interval": 5,
-        "format-wifi": "W: {signalStrength}% | rx:{bandwidthUpBytes} tx:{bandwidthDownBytes}",
+        "format-wifi": "W: {signalStrength}% | rx:{bandwidthDownBytes} tx:{bandwidthUpBytes}",
         "format-disconnected": "W: down",
     },
 }]

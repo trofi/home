@@ -20,3 +20,6 @@
 	defaultBranch = main
 [http]
 	cookiefile = /home/slyfox/.gitcookies
+[safe]
+	# workaround https://github.com/NixOS/nix/issues/10202
+	directory = /etc/nixos

@@ -2,8 +2,6 @@
 # Personal functions
 
 w(){
-   dbus-launch \
-   \
-     sway
+    sway
 }
 

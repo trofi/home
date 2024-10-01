@@ -8,8 +8,11 @@ export PS2="\[\033[01;32m\]....\[\033[01;31m\]> \[\033[00m\]"
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# Is also set in '.config/environment.d/ssh_auth_socket.conf'
-SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-export SSH_AUTH_SOCK
+# Allow existing SSH clients to retain the agent redirect.
+if [[ -z $SSH_AUTH_SOCK ]]; then
+    # Is also set in '.config/environment.d/ssh_auth_socket.conf'
+    SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+    export SSH_AUTH_SOCK
+fi
 
 #End ~/.bash/vars.rc

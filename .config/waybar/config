@@ -13,6 +13,7 @@
     "modules-right": [
         "idle_inhibitor",
         "sway/language",
+        "custom/upgrade-status",
     ],
 
     "sway/mode": {
@@ -32,6 +33,11 @@
             "activated": "NOSLEEP",
             "deactivated": "SLEEP"
         }
+    },
+    "custom/upgrade-status": {
+        "interval": 3600,
+        "format": "upgrade: {}",
+        "exec": "systemctl --system is-failed nixos-upgrade.service",
     },
 },{
     "position": "bottom", // Waybar position (top|bottom|left|right)

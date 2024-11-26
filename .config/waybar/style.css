@@ -68,3 +68,6 @@ button:hover {
 #clock, #cpu, #network, #disk, #custom-xmms2 {
     background-color: rgba(0, 0, 0, 0.75);
 }
+#custom-upgrade-status {
+    background-color: darkred;
+}

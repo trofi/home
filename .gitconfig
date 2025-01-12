@@ -3,6 +3,11 @@
 	rbsm = !git reset --hard $(git merge-base origin/staging origin/master)
 	rbssn = !git reset --hard $(git merge-base origin/staging origin/staging-next)
 	wdiff = diff --word-diff
+
+	# difftastic integration: https://difftastic.wilfred.me.uk/git.html
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff
 [color]
 	ui = auto
 [user]

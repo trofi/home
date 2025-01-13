@@ -60,26 +60,5 @@ let g:netrw_liststyle=3 " tree view
 :map <C-Up> <C-y>
 :map <C-Down> <C-e>
 
-" Save current file contents, mcedit style
-:imap <F2> <Esc>:w<CR>a
-:vmap <F2> <Esc>:w<CR>v
-:nmap <F2> :w<CR>
-
-" Enter visual/exit visual selection mode, mcedit style
-:nmap <F3> <S-v>
-:vmap <F3> y
-
-" Paste, mcedit style
-:nmap <F5> P
-
-" Delete current line, mcedit style
-:nmap <F8> dd
-:imap <F8> <Esc>ddi
-:vmap <F8> <Esc>ddi
-
-" Exit from editor, mcedit style
-:map  <F10> <Esc>:q<CR>
-:imap <F10> <Esc>:q<CR>
-
 " spelling configuration
 setlocal spelllang=en_gb,ru

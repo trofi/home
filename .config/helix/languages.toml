@@ -1,0 +1,9 @@
+# spell checker
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "harper-ls"]
+auto-format = false

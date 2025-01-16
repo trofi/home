@@ -32,6 +32,10 @@ set showtabline=2
 " always render status line below
 set laststatus=2
 
+" render line number column (and do it with with a different color)
+set number
+highlight LineNr ctermbg=darkgray guibg=darkgray
+
 set list
 set listchars=tab:<->,trail:.
 

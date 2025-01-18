@@ -7,3 +7,12 @@ nnbsp = "all"
 [editor.whitespace.characters]
 tab = ">"
 tabpad = "-"
+
+[keys.insert]
+C-c = "normal_mode"
+
+[keys.normal]
+C-c = "normal_mode"
+
+[keys.select]
+C-c = "normal_mode"

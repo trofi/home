@@ -1,5 +1,6 @@
 [editor]
 auto-pairs = false
+bufferline = "always"
 rulers = [73]
 
 [editor.statusline]

@@ -1,9 +1,10 @@
 [editor]
+auto-pairs = false
 rulers = [73]
 
 [editor.statusline]
-# added "position-percentage"
-right = ["diagnostics", "selections", "register", "position", "position-percentage", "file-encoding"]
+# added "file-type", "position-percentage"
+right = ["file-type", "diagnostics", "selections", "register", "position", "position-percentage", "file-encoding"]
 
 [editor.whitespace.render]
 space = "all"

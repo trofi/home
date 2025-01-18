@@ -2,6 +2,7 @@
 auto-pairs = false
 bufferline = "always"
 rulers = [73]
+true-color = true # TMUX term does not always agree
 
 [editor.statusline]
 # added "file-type", "position-percentage"

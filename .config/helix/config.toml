@@ -1,3 +1,6 @@
+[editor]
+rulers = [73]
+
 [editor.statusline]
 # added "position-percentage"
 right = ["diagnostics", "selections", "register", "position", "position-percentage", "file-encoding"]

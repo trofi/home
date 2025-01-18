@@ -10,9 +10,15 @@ tabpad = "-"
 
 [keys.insert]
 C-c = "normal_mode"
+C-up = ["scroll_up", "move_visual_line_up"]
+C-down = ["scroll_down", "move_visual_line_down"]
 
 [keys.normal]
 C-c = "normal_mode"
+C-up = ["scroll_up", "move_visual_line_up"]
+C-down = ["scroll_down", "move_visual_line_down"]
 
 [keys.select]
 C-c = "normal_mode"
+C-up = ["scroll_up", "move_visual_line_up"]
+C-down = ["scroll_down", "move_visual_line_down"]

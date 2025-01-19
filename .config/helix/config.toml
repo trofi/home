@@ -1,3 +1,5 @@
+theme = "sf"
+
 [editor]
 auto-pairs = false
 bufferline = "always"

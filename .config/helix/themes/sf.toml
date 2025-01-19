@@ -1,0 +1,4 @@
+inherits = "default"
+
+"ui.selection" = { bg = "#540020" }
+"ui.selection.primary" = { bg = "#540099" }

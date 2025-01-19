@@ -1,4 +1,5 @@
 inherits = "default"
 
+# workaround https://github.com/helix-editor/helix/issues/12601
 "ui.selection" = { bg = "#540020" }
 "ui.selection.primary" = { bg = "#540099" }

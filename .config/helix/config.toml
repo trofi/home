@@ -29,6 +29,7 @@ C-down = ["scroll_down", "move_visual_line_down"]
 C-c = "normal_mode"
 C-up = ["scroll_up", "move_visual_line_up"]
 C-down = ["scroll_down", "move_visual_line_down"]
+ins = ["insert_mode"]
 
 [keys.select]
 C-c = "normal_mode"

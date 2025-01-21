@@ -7,3 +7,6 @@ args = ["--stdio"]
 name = "markdown"
 language-servers = ["marksman", "harper-ls"]
 auto-format = false
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"

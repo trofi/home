@@ -29,6 +29,7 @@ export PERLDOC_PAGER="less -isR"
 export MAILDIR=$HOME/.maildir
 
 # fzf bits
-export FZF_CTRL_T_OPTS="--style=full --tmux 100%  --preview 'bat -n --color=always {}'"
+export FZF_DEFAULT_OPTS="--style=full --tmux 100%"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'"
 
 #End ~/.bash/vars

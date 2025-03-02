@@ -10,7 +10,7 @@ bindsym Control+grave  exec alacritty -e tmux
 bindsym Mod4+grave     exec alacritty -e pulsemixer
 bindsym Mod1+grave     exec alacritty
 
-bindsym Mod1+Control+b exec chromium
+bindsym Mod1+Control+b exec x-www-browser
 bindsym Mod1+Control+l exec liferea
 bindsym Mod1+Control+m exec claws-mail
 

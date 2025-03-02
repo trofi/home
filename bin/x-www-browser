@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Allow xdg-open and others switch the browser in a single place.
+
+exec chromium "$@"

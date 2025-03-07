@@ -2,4 +2,4 @@
 
 set -x
 
-nixpkgs-review pr --no-shell --post-result --build-args "--max-jobs 1" "$@"
+nixpkgs-review pr --no-shell --post-result --build-args "--max-jobs 1" --eval local "$@"

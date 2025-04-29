@@ -1,6 +1,7 @@
 theme = "sf"
 
 [editor]
+auto-completion = false # interferes with normal input
 auto-pairs = false
 bufferline = "always"
 rulers = [73]

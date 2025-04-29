@@ -2,4 +2,6 @@
 
 # Allow xdg-open and others switch the browser in a single place.
 
+export LANGUAGE=en
+
 exec chromium "$@"

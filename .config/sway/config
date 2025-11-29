@@ -6,7 +6,7 @@ font pango:Source Code Pro 11.5
 floating_modifier Mod1
 
 # my programs
-bindsym Control+grave  exec alacritty -e tmux
+bindsym Control+grave  exec alacritty -e zellij
 bindsym Mod4+grave     exec alacritty -e pulsemixer
 bindsym Mod1+grave     exec alacritty
 

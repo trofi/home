@@ -165,9 +165,10 @@ keybinds clear-defaults=true {
     shared_except "locked" "scroll" "search" "tmux" {
         bind "Ctrl b" { SwitchToMode "tmux"; }
     }
-    shared_except "locked" "scroll" "search" {
-        bind "Ctrl s" { SwitchToMode "scroll"; }
-    }
+    // Conflicts with helix's Ctrl-s for saves
+    //shared_except "locked" "scroll" "search" {
+    //    bind "Ctrl s" { SwitchToMode "scroll"; }
+    //}
     shared_except "locked" "tab" {
         bind "Ctrl t" { SwitchToMode "tab"; }
     }

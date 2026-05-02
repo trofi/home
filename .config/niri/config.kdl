@@ -32,6 +32,12 @@ cursor {
     hide-after-inactive-ms 1000
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 output "DP-3" {
     scale 2
 }

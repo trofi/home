@@ -3,19 +3,25 @@
     "spacing": 10, // Gaps between modules (4px)
 
     "modules-left": [
+        "niri/workspaces",
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad"
     ],
     "modules-center": [
+        "niri/window",
         "sway/window"
     ],
     "modules-right": [
         "idle_inhibitor",
+        "niri/language",
         "sway/language",
         "custom/upgrade-status",
     ],
 
+    "niri/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },

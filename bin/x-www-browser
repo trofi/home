@@ -4,4 +4,4 @@
 
 export LANGUAGE=en
 
-exec chromium "$@"
+exec chromium --ozone-platform=wayland "$@"

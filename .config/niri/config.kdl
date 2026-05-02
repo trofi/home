@@ -1,0 +1,195 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            model "105"
+            options "grp:caps_toggle"
+        }
+
+        repeat-delay 200
+        repeat-rate  50
+        numlock
+    }
+
+    mouse {
+        accel-speed -0.2
+        accel-profile "flat"
+        scroll-factor 0.5
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 32
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+output "DP-3" {
+    scale 2
+}
+
+layout {
+    gaps 0
+
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.5
+        proportion 1.0
+        proportion 0.33333
+        proportion 0.66667
+
+        // Fixed sets the width in logical pixels exactly.
+        // fixed 1920
+    }
+
+    default-column-width { proportion 1.0; }
+    focus-ring {
+        // How many logical pixels the ring extends out from the windows.
+        width 1
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+}
+
+spawn-at-startup "waybar"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+    off
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+workspace "1: any"
+workspace "2: irc"
+workspace "3: jabber"
+workspace "4: any"
+workspace "5: liferea"
+workspace "6: web"
+workspace "7: mail"
+workspace "8: net"
+workspace "9: music"
+
+binds {
+    Control+grave hotkey-overlay-title="Zellij in Alactritty" { spawn "alacritty" "-e" "zellij"; }
+    Alt+grave     hotkey-overlay-title="Alactritty"           { spawn "alacritty"; }
+    Super+grave   hotkey-overlay-title="Alactritty"           { spawn "alacritty" "-e" "pulsemixer"; }
+
+    Alt+Control+b hotkey-overlay-title="Browser"              { spawn "x-www-browser"; }
+    Alt+Control+l hotkey-overlay-title="Liferea"              { spawn "liferea"; }
+    Alt+Control+m hotkey-overlay-title="Mail"                 { spawn "claws-mail"; }
+
+    Mod+Home      { spawn "xmms2" "prev"; }
+    Mod+End       { spawn "xmms2" "next"; }
+    Mod+Insert    { spawn "xmms2" "play"; }
+    Mod+Delete    { spawn "xmms2" "pause"; }
+    Mod+Prior     { spawn "xmms2" "seek" "+30"; }
+    Mod+Next      { spawn "xmms2" "seek" "-30"; }
+
+    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
+    // when running as a winit window.
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    Mod+O repeat=false { toggle-overview; }
+
+    Mod+Shift+c repeat=false { close-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
+
+    Control+F1 { focus-workspace "1: any"; }
+    Control+F2 { focus-workspace "2: irc"; }
+    Control+F3 { focus-workspace "3: jabber"; }
+    Control+F4 { focus-workspace "4: any"; }
+    Control+F5 { focus-workspace "5: liferea"; }
+    Control+F6 { focus-workspace "6: web"; }
+    Control+F7 { focus-workspace "7: mail"; }
+    Control+F8 { focus-workspace "8: net"; }
+    Control+F9 { focus-workspace "9: music"; }
+    Ctrl+Shift+F1 { move-column-to-workspace "1: any"; }
+    Ctrl+Shift+F2 { move-column-to-workspace "2: irc"; }
+    Ctrl+Shift+F3 { move-column-to-workspace "3: jabber"; }
+    Ctrl+Shift+F4 { move-column-to-workspace "4: any"; }
+    Ctrl+Shift+F5 { move-column-to-workspace "5: liferea"; }
+    Ctrl+Shift+F6 { move-column-to-workspace "6: web"; }
+    Ctrl+Shift+F7 { move-column-to-workspace "7: mail"; }
+    Ctrl+Shift+F8 { move-column-to-workspace "8: net"; }
+    Ctrl+Shift+F9 { move-column-to-workspace "9: music"; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-column-width-back; }
+
+    Mod+Ctrl+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+
+    Mod+Shift+F { maximize-column; }
+    Mod+F { fullscreen-window; }
+
+    Mod+M { maximize-window-to-edges; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+C { center-column; }
+    Mod+Ctrl+C { center-visible-columns; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Move the focused window between the floating and the tiling layout.
+    Mod+T       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+W { toggle-column-tabbed-display; }
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Mod+Shift+E { quit; }
+
+    // Powers off the monitors. To turn them back on, do any input like
+    // moving the mouse or pressing any other key.
+    Scroll_Lock { power-off-monitors; }
+}
